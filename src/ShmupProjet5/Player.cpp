@@ -8,6 +8,7 @@
 Player::Player(sf::Vector2f position, float rotation, sf::Texture* texture, bool isActive, PlayerController* playerController): Character(position, rotation, texture, PLAYERTAG,  true)
 {
 	mIsCurrent = isActive;
+
 	mSprite.setTextureRect(sf::IntRect(32 * mIsCurrent, 0, 32, 64));
 	mSprite.setOrigin(sf::Vector2f(17.0f, 32.0f));
 	mSprite.setScale(sf::Vector2f(1.5f, 1.5f));

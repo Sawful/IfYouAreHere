@@ -3,6 +3,7 @@
 
 class SceneManager;
 class SoundManager;
+class ResourceManager;
 
 class GameManager
 {
@@ -17,6 +18,7 @@ protected:
 
 	SceneManager* mSceneManager;
 	SoundManager* mSoundManager;
+	ResourceManager* mResourceManager;
 
 	GameManager();
 	int mCurrentScore;
@@ -25,6 +27,7 @@ public:
 	static GameManager* GetInstance();
 	SceneManager* GetSceneManager();
 	SoundManager* GetSoundManager();
+	ResourceManager* GetResourceManager();
 	sf::RenderWindow* GetWindow();
 	bool GetPause();
 	void SetPause(bool pause);

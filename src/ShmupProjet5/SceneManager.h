@@ -23,7 +23,7 @@ class SceneManager
 	std::vector<Level*> stages;
 	Stage2* mStage2;
 	
-	Menu mainMenu;
+	Menu mMainMenu;
 	LeaderboardMenu leaderboardMenu;
 
 	Scene* currentScene;
@@ -34,6 +34,9 @@ class SceneManager
 
 public:
 	SceneManager(sf::RenderWindow* window, GameManager* gm);
+
+	void Initialize();
+
 	PlayerController* GetPlayerController();
 	void AddLevel(Level* newStage);
 	void ChangeScene(Level* newStage);

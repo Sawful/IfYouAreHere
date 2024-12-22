@@ -1,15 +1,17 @@
 #include "GameManager.h"
 #include "SceneManager.h"
 #include "SoundManager.h"
+#include "ResourceManager.h"
 
 
 GameManager* GameManager::mInstance = nullptr;
 
 GameManager::GameManager(): mWindow(new sf::RenderWindow(sf::VideoMode(1200, 900), "If you are here", sf::Style::Titlebar | sf::Style::Close)),
 mSoundManager(new SoundManager()),
+mResourceManager(new ResourceManager()),
 mSceneManager(new SceneManager(mWindow, this))
 {
-	mSceneManager->GetCurrentScene();
+	mSceneManager->Initialize();
 	mCurrentScore = 0;
 }
 
@@ -30,6 +32,11 @@ SceneManager* GameManager::GetSceneManager()
 SoundManager* GameManager::GetSoundManager()
 {
 	return mSoundManager;
+}
+
+ResourceManager* GameManager::GetResourceManager()
+{
+	return mResourceManager;
 }
 
 sf::RenderWindow* GameManager::GetWindow()

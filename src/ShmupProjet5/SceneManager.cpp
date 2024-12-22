@@ -2,12 +2,15 @@
 #include "Stage1.h"
 #include "Stage2.h"
 
-SceneManager::SceneManager(sf::RenderWindow* window, GameManager* gm): mainMenu(window, this), leaderboardMenu(window)
+SceneManager::SceneManager(sf::RenderWindow* window, GameManager* gm): mMainMenu(window, this), leaderboardMenu(window)
 {
 	mainWindow = window;
 	mGameManager = gm;
+}
 
-	ChangeScene(&mainMenu);
+void SceneManager::Initialize()
+{
+	ChangeScene(&mMainMenu);
 
 	sf::Texture pcTexture;
 	pcTexture.loadFromFile("..\\..\\..\\res\\BulletTest.png");
@@ -21,8 +24,10 @@ SceneManager::SceneManager(sf::RenderWindow* window, GameManager* gm): mainMenu(
 	mSceneSwapOverlay->setSize(sf::Vector2f(2400, 2400));
 	mSceneSwapOverlay->setFillColor(sf::Color(0, 0, 0, 0));
 
-	mStage2 = new Stage2(window, mPlayerController, mGameManager);
-	AddLevel(new Stage1(window, mPlayerController, mGameManager));
+	AddLevel(new Stage1(mainWindow, mPlayerController, mGameManager));
+
+	mStage2 = new Stage2(mainWindow, mPlayerController, mGameManager);
+
 	AddLevel(mStage2);
 }
 
@@ -71,7 +76,7 @@ void SceneManager::ChangeToStage(int stage)
 
 void SceneManager::ChangeToMainMenu()
 {
-	SetNextScene(&mainMenu);
+	SetNextScene(&mMainMenu);
 	//ChangeScene(&mainMenu);
 }
 

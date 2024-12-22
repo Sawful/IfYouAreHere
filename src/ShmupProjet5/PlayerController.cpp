@@ -3,13 +3,15 @@
 #include "Level.h"
 #include "SceneManager.h"
 #include "SoundManager.h"
+#include "ResourceManager.h"
 
 
 PlayerController::PlayerController(sf::Texture* pcTexture, GameManager* gm): Entity(sf::Vector2f(0.0f, 0.0f), 0.0f, pcTexture, true)
 {
     mGameManager = gm;    
-    mPlayerTexture.loadFromFile("..\\..\\..\\res\\lightkitty_all.png");
-    mPlayerAlterTexture.loadFromFile("..\\..\\..\\res\\darkkitty_all.png");
+    
+    mPlayerTexture = *(gm->GetResourceManager()->GetTexture(LIGHT_KITTY));
+    mPlayerAlterTexture = *(gm->GetResourceManager()->GetTexture(DARK_KITTY));
 
     mPlayer = new Player(sf::Vector2f(0.0f, 0.0f), 0.0f, &mPlayerTexture, true, this);
     mPlayerAlter = new Player(sf::Vector2f(0.0f, 0.0f), 0.0f, &mPlayerAlterTexture, false, this);
