@@ -50,7 +50,7 @@ class Boss2 : public Enemy
 	Boss2Pattern* mCurrentPattern;
 
 public:
-	Boss2(sf::Vector2f position, float rotation, bool isActive, sf::Texture* texture, sf::Texture* dropTexture);
+	Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName texture);
 
 	virtual void Update(float deltaTime);
 	virtual void Attack();

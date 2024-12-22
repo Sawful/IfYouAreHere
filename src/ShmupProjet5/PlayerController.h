@@ -59,7 +59,7 @@ class PlayerController: public Entity
 	int mLives;
 
 public:
-	PlayerController(sf::Texture* pcTexture, GameManager* gm);
+	PlayerController(TextureName pcTexture, GameManager* gm);
 	virtual void Update(float deltaTime);
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 	Player* GetActivePlayerPointer();

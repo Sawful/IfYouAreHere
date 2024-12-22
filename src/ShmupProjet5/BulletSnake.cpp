@@ -1,7 +1,7 @@
 #include "BulletSnake.h"
 #include "Character.h"
 
-BulletSnake::BulletSnake(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, sf::Texture* texture, Tag bulletTag, bool isActive, float rotateOffset):
+BulletSnake::BulletSnake(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, TextureName texture, Tag bulletTag, bool isActive, float rotateOffset):
 	Bullet(speed, direction, position, rotation, texture, bulletTag, isActive)
 {
 	mRotateTimer = 0;

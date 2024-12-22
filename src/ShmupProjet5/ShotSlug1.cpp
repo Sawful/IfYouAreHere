@@ -3,10 +3,9 @@
 #include "GameManager.h"
 #include "SceneManager.h"
 
-ShotSlug1::ShotSlug1(sf::Vector2f position, float rotation, bool isActive, sf::Texture* texture, sf::Texture* dropTexture, std::vector<Path*> movementPath):
-	Enemy(position, rotation, 1, texture, dropTexture, isActive)
+ShotSlug1::ShotSlug1(sf::Vector2f position, float rotation, bool isActive, TextureName texture, std::vector<Path*> movementPath):
+	Enemy(position, rotation, 1, texture, isActive)
 {
-	mTexture = texture;
 	mMovementPath = movementPath;
 	mBulletSpawnerPTR = new BulletSpawnerSlug1(this, mCurrentStage);
 

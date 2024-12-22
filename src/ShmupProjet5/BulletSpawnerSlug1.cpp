@@ -9,8 +9,6 @@ BulletSpawnerSlug1::BulletSpawnerSlug1(Enemy* owner, Level* currentStage)
 	mPlayerController = mCurrentStage->GetPlayerController();
 
 	mOwner = owner;
-
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
 }
 
 void BulletSpawnerSlug1::SpawnBullet(sf::Vector2f targetPosition)
@@ -19,7 +17,7 @@ void BulletSpawnerSlug1::SpawnBullet(sf::Vector2f targetPosition)
 
 	bulletDirection = *NormalizeV2f(bulletDirection);
 
-	mCurrentStage->AddToEntities(new BulletBase(1, 200.0f, bulletDirection, getPosition() + sf::Vector2f(-10.0f, 10.0f), getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f));
+	mCurrentStage->AddToEntities(new BulletBase(1, 200.0f, bulletDirection, getPosition() + sf::Vector2f(-10.0f, 10.0f), getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f));
 }
 
 void BulletSpawnerSlug1::Update(float dt)

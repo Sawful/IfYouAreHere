@@ -1,10 +1,9 @@
 #include "EnemyTest.h"
 
 
-EnemyTest::EnemyTest(sf::Vector2f position, float rotation, bool isActive, sf::Texture* texture, sf::Texture* dropTexture):
-	Enemy(position, rotation, 40, texture, dropTexture, isActive)
+EnemyTest::EnemyTest(sf::Vector2f position, float rotation, bool isActive, TextureName texture):
+	Enemy(position, rotation, 40, texture, isActive)
 {
-	mTexture = texture;
 	mBulletSpawnerPTR = new BulletSpawnerTest(this);
 
 	mSprite.setOrigin(sf::Vector2f(130.0f, 97.0f));

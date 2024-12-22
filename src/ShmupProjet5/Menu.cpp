@@ -7,65 +7,57 @@ Menu::Menu(sf::RenderWindow* window, SceneManager* sceneManager): Scene(window)
 {
 	mButtonHovered = 0;
 	mSceneManager = sceneManager;
+}
 
-	menuBgTexture.loadFromFile("../../../res/menu_background.png");
-	menuBackground.setTexture(menuBgTexture);
-	menuBackground.setScale(sf::Vector2f(2,2));
+void Menu::Initialize()
+{
+	ResourceManager* rm = GameManager::GetInstance()->GetResourceManager();
 
-	mDinocatTexture.loadFromFile("../../../res/dinokitties.png");
-	mDinocatSprite.setTexture(mDinocatTexture);
+	menuBackground.setTexture(*rm->GetTexture(MENU_BACKGROUND_TEXTURE));
+	menuBackground.setScale(sf::Vector2f(2, 2));
+
+	mDinocatSprite.setTexture(*rm->GetTexture(DINOCAT_TEXTURE));
 	mDinocatSprite.setScale(sf::Vector2f(2, 2));
 	mDinocatSprite.setPosition(sf::Vector2f(75.0f, 70.0f));
 
-	mLightATexture.loadFromFile("../../../res/lightbullet2.png");
-	mLightBTexture.loadFromFile("../../../res/lightbullet3.png");
-	mDarkATexture.loadFromFile("../../../res/darkbullet2.png");
-	mDarkBTexture.loadFromFile("../../../res/darkbullet3.png");
-
-	mLightASprite1.setTexture(mLightATexture);
+	mLightASprite1.setTexture(*rm->GetTexture(BULLET_LIGHT_2));
 	mLightASprite1.setScale(sf::Vector2f(4.0f, 4.0f));
 	mLightASprite1.setPosition(sf::Vector2f(85.0f, 640.0f));
 	mLightASprite1.setRotation(25);
 
-	mLightASprite2.setTexture(mLightATexture);
+	mLightASprite2.setTexture(*rm->GetTexture(BULLET_LIGHT_2));
 	mLightASprite2.setScale(sf::Vector2f(4.0f, 4.0f));
 	mLightASprite2.setPosition(sf::Vector2f(315.0f, 550.0f));
 	mLightASprite2.setRotation(-15);
 
-	mLightBSprite1.setTexture(mLightBTexture);
+	mLightBSprite1.setTexture(*rm->GetTexture(BULLET_LIGHT_3));
 	mLightBSprite1.setScale(sf::Vector2f(4.0f, 4.0f));
 	mLightBSprite1.setPosition(sf::Vector2f(75.0f, 650.0f));
 
-	mLightBSprite2.setTexture(mLightBTexture);
+	mLightBSprite2.setTexture(*rm->GetTexture(BULLET_LIGHT_3));
 	mLightBSprite2.setScale(sf::Vector2f(4.0f, 4.0f));
 	mLightBSprite2.setPosition(sf::Vector2f(325.0f, 550.0f));
 
-	mDarkASprite1.setTexture(mDarkATexture);
+	mDarkASprite1.setTexture(*rm->GetTexture(BULLET_DARK_2));
 	mDarkASprite1.setScale(sf::Vector2f(4.0f, 4.0f));
 	mDarkASprite1.setPosition(sf::Vector2f(300.0f, 300.0f));
 
-	mDarkASprite2.setTexture(mDarkATexture);
+	mDarkASprite2.setTexture(*rm->GetTexture(BULLET_DARK_2));
 	mDarkASprite2.setScale(sf::Vector2f(4.0f, 4.0f));
 	mDarkASprite2.setPosition(sf::Vector2f(600.0f, 225.0f));
 
-	mDarkBSprite1.setTexture(mDarkBTexture);
+	mDarkBSprite1.setTexture(*rm->GetTexture(BULLET_DARK_3));
 	mDarkBSprite1.setScale(sf::Vector2f(4.0f, 4.0f));
 	mDarkBSprite1.setPosition(sf::Vector2f(325.0f, 375.0f));
 	mDarkBSprite1.setRotation(-155);
 
-	mDarkBSprite2.setTexture(mDarkBTexture);
+	mDarkBSprite2.setTexture(*rm->GetTexture(BULLET_DARK_3));
 	mDarkBSprite2.setScale(sf::Vector2f(4.0f, 4.0f));
 	mDarkBSprite2.setPosition(sf::Vector2f(675.0f, 250.0f));
 	mDarkBSprite2.setRotation(125);
 
-	playButtonTexture.loadFromFile("..\\..\\..\\res\\play_button.png");
-	playButtonTextureHovered.loadFromFile("..\\..\\..\\res\\play_button_hovered.png");
-
-	quitButtonTexture.loadFromFile("../../../res/quit_button.png");
-	quitButtonTextureHovered.loadFromFile("../../../res/quit_button_hovered.png");
-
-	AddButton(new MenuButton(sf::Vector2f(768.0f, 424.0f), 0.0f, sf::Vector2f(180.0f, 80.0f), &playButtonTexture, &playButtonTextureHovered));
-	AddButton(new MenuButton(sf::Vector2f(768.0f, 658.0f), 0.0f, sf::Vector2f(180.0f, 80.0f), &quitButtonTexture, &quitButtonTextureHovered));
+	AddButton(new MenuButton(sf::Vector2f(768.0f, 424.0f), 0.0f, sf::Vector2f(180.0f, 80.0f), PLAY_BUTTON_TEXTURE, PLAY_BUTTON_HOVERED_TEXTURE));
+	AddButton(new MenuButton(sf::Vector2f(768.0f, 658.0f), 0.0f, sf::Vector2f(180.0f, 80.0f), QUIT_BUTTON_TEXTURE, QUIT_BUTTON_HOVERED_TEXTURE));
 	mMainMenuButtons[0]->setScale(sf::Vector2f(2, 2));
 	mMainMenuButtons[1]->setScale(sf::Vector2f(2, 2));
 

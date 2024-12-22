@@ -2,10 +2,9 @@
 #include "GameManager.h"
 #include "SceneManager.h"
 
-BigCircleGuy::BigCircleGuy(sf::Vector2f position, float rotation, bool isActive, sf::Texture* texture, sf::Texture* dropTexture, std::vector<Path*> movementPath):
-	Enemy(position, rotation, 2, texture, dropTexture, isActive)
+BigCircleGuy::BigCircleGuy(sf::Vector2f position, float rotation, bool isActive, TextureName texture, std::vector<Path*> movementPath):
+	Enemy(position, rotation, 2, texture, isActive)
 {
-	mTexture = texture;
 	mMovementPath = movementPath;
 	mBulletSpawnerPTR = new BulletSpawnerCircle1(this, mCurrentStage);
 

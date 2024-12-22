@@ -3,7 +3,7 @@
 #include "Drop.h"
 
 
-Character::Character(sf::Vector2f position, float rotation, sf::Texture* texture, Tag hitboxTag, bool isActive):
+Character::Character(sf::Vector2f position, float rotation, TextureName texture, Tag hitboxTag, bool isActive):
 	Entity(position, rotation, texture, isActive),
 	mHitbox(hitboxTag)
 {

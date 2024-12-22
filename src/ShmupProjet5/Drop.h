@@ -22,7 +22,7 @@ class Drop : public Entity
 	float mLifetime;
 
 public:
-	Drop(sf::Vector2f position , float lifetime, sf::Texture* texture);
+	Drop(sf::Vector2f position , float lifetime, TextureName texture);
 
 	virtual void Update(float deltaTime);
 

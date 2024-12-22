@@ -3,7 +3,7 @@
 #include <iostream>
 
 
-Bullet::Bullet(float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, sf::Texture* texture, Tag bulletTag, bool isActive) :
+Bullet::Bullet(float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, TextureName texture, Tag bulletTag, bool isActive) :
 	Entity(position, rotation, texture, isActive), mHitbox(bulletTag)
 {
 	mSpeed = speed;

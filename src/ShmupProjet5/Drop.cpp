@@ -4,7 +4,7 @@
 #include "cmath"
 
 
-Drop::Drop(sf::Vector2f position, float lifetime, sf::Texture* texture) : Entity(position, 0, texture, true), mHitbox(PICKUP)
+Drop::Drop(sf::Vector2f position, float lifetime, TextureName texture) : Entity(position, 0, texture, true), mHitbox(PICKUP)
 {
 	mHitbox.AddCircle(new sf::CircleShape(32.0f));
 

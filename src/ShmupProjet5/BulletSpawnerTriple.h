@@ -8,8 +8,6 @@ class BulletSpawnerTriple : public BulletSpawner
 	float mShotTime = 1.0f;
 	float mShotCooldown = 2.0f;
 
-	sf::Texture mBulletTexture;
-
 	Enemy* mOwner;
 	PlayerController* mPlayerController;
 

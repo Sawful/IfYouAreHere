@@ -23,7 +23,7 @@ protected:
 	sf::FloatRect mGameRect;
 	
 public:
-	Bullet(float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, sf::Texture* texture, Tag bulletTag, bool isActive);
+	Bullet(float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, TextureName texture, Tag bulletTag, bool isActive);
 	void Reset(float speed, sf::Vector2f direction, sf::Vector2f position, float rotation);
 	virtual void Update(float deltaTime);
 	virtual void RemoveBullet();

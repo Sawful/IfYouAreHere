@@ -14,8 +14,6 @@ BulletSpawnerBoss21::BulletSpawnerBoss21(Boss2* owner, Level* currentStage)
 
 	mOwner = owner;
 
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
-
 	mAttackNumber = 0;
 
 	mIsAttacking = false;
@@ -30,7 +28,7 @@ void BulletSpawnerBoss21::SpawnBullet()
 
 	for (int i = 0; i < 24; i++)
 	{
-		mCurrentStage->AddToEntities(new BulletBase(1, 250.0f, sf::Vector2f(cos(i * std::numbers::pi / 12), sin(i * std::numbers::pi / 12)), mOwner->getPosition(), getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f));
+		mCurrentStage->AddToEntities(new BulletBase(1, 250.0f, sf::Vector2f(cos(i * std::numbers::pi / 12), sin(i * std::numbers::pi / 12)), mOwner->getPosition(), getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f));
 	}
 }
 
@@ -82,8 +80,6 @@ BulletSpawnerBoss22::BulletSpawnerBoss22(Boss2* owner, Level* currentStage)
 
 	mOwner = owner;
 
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
-
 	mWindow = GameManager::GetInstance()->GetWindow();
 	mPlayerController = currentStage->GetPlayerController();
 
@@ -98,7 +94,7 @@ void BulletSpawnerBoss22::SpawnBullet()
 
 	for (int i = 0; i < 24; i++)
 	{
-		BulletBase* newBullet = new BulletBase(1, 0, sf::Vector2f(0, 1), mOwner->getPosition() + (float)(i + 2.5f) * mDirection * 50.0f, 0, &mBulletTexture, ENEMYBULLET, true, 150.0f);
+		BulletBase* newBullet = new BulletBase(1, 0, sf::Vector2f(0, 1), mOwner->getPosition() + (float)(i + 2.5f) * mDirection * 50.0f, 0, BULLET_TEXTURE, ENEMYBULLET, true, 150.0f);
 		newBullet->SetTransparency(0);
 		mBullets.push_back(newBullet);
 		mCurrentStage->AddToEntities(newBullet);
@@ -187,8 +183,6 @@ BulletSpawnerBoss23::BulletSpawnerBoss23(Boss2* owner, Level* currentStage)
 
 	mOwner = owner;
 
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
-
 	mWindow = GameManager::GetInstance()->GetWindow();
 
 	mIsPreview = false;
@@ -201,7 +195,7 @@ void BulletSpawnerBoss23::SpawnBullet()
 	GameManager::GetInstance()->GetSceneManager()->ShakeStage2(1.5f);
 	for (int i = 0; i < 24; i++)
 	{
-		BulletBase* newBullet = new BulletBase(1, 0, sf::Vector2f(0, 1), sf::Vector2f(-200.0f + i * 50.0f, 800.0f), 0, &mBulletTexture, ENEMYBULLET, true, 150.0f);
+		BulletBase* newBullet = new BulletBase(1, 0, sf::Vector2f(0, 1), sf::Vector2f(-200.0f + i * 50.0f, 800.0f), 0, BULLET_TEXTURE, ENEMYBULLET, true, 150.0f);
 		newBullet->SetTransparency(0);
 		mBullets.push_back(newBullet);
 		mCurrentStage->AddToEntities(newBullet);
@@ -274,9 +268,6 @@ BulletSpawnerBoss24::BulletSpawnerBoss24(Boss2* owner, Level* currentStage)
 
 	mOwner = owner;
 
-
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
-
 	mWindow = GameManager::GetInstance()->GetWindow();
 
 	mIsPreview = false;
@@ -290,7 +281,7 @@ void BulletSpawnerBoss24::SpawnBullet()
 
 	for (int i = 0; i < 24; i++)
 	{
-		BulletBase* newBullet = new BulletBase(1, 0, sf::Vector2f(0, 1), sf::Vector2f(-200.0f + i * 50.0f, 300.0f), 0, &mBulletTexture, ENEMYBULLET, true, 150.0f);
+		BulletBase* newBullet = new BulletBase(1, 0, sf::Vector2f(0, 1), sf::Vector2f(-200.0f + i * 50.0f, 300.0f), 0, BULLET_TEXTURE, ENEMYBULLET, true, 150.0f);
 		newBullet->SetTransparency(0);
 		mBullets.push_back(newBullet);
 		mCurrentStage->AddToEntities(newBullet);
@@ -365,8 +356,6 @@ BulletSpawnerBoss2Phase1Perma::BulletSpawnerBoss2Phase1Perma(Enemy* owner, Level
 
 	mOwner = owner;
 
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
-
 	mRotation = 0;
 }
 
@@ -376,7 +365,7 @@ void BulletSpawnerBoss2Phase1Perma::SpawnBullet()
 	mRotation += std::numbers::pi / 16;
 	for (int i = 0; i < 8; i++)
 	{
-		mCurrentStage->AddToEntities(new BulletBase(1, 200.0f, sf::Vector2f(cos(i * std::numbers::pi / 4 + mRotation), sin(i * std::numbers::pi / 4 + mRotation)), position, 0, &mBulletTexture, ENEMYBULLET, true, 8.0f));
+		mCurrentStage->AddToEntities(new BulletBase(1, 200.0f, sf::Vector2f(cos(i * std::numbers::pi / 4 + mRotation), sin(i * std::numbers::pi / 4 + mRotation)), position, 0, BULLET_TEXTURE, ENEMYBULLET, true, 8.0f));
 	}
 }
 
@@ -390,8 +379,6 @@ BulletSpawnerBoss25::BulletSpawnerBoss25(Enemy* owner, Level* currentStage)
 
 	mOwner = owner;
 
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
-
 	mRotation = 0;
 }
 
@@ -401,7 +388,7 @@ void BulletSpawnerBoss25::SpawnBullet()
 
 	for (int i = 0; i < 8; i++)
 	{
-		mCurrentStage->AddToEntities(new BulletBase(1, 300.0f, sf::Vector2f(cos(i * std::numbers::pi / 4 + mRotation), sin(i * std::numbers::pi / 4 + mRotation)), position, 0, &mBulletTexture, ENEMYBULLET, true, 8.0f));
+		mCurrentStage->AddToEntities(new BulletBase(1, 300.0f, sf::Vector2f(cos(i * std::numbers::pi / 4 + mRotation), sin(i * std::numbers::pi / 4 + mRotation)), position, 0, BULLET_TEXTURE, ENEMYBULLET, true, 8.0f));
 	}
 }
 

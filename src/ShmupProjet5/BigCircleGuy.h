@@ -10,7 +10,7 @@ class BigCircleGuy : public Enemy
 	float mAttackAnimationTime;
 
 public:
-	BigCircleGuy(sf::Vector2f position, float rotation, bool isActive, sf::Texture* texture, sf::Texture* dropTexture, std::vector<Path*> movementPath);
+	BigCircleGuy(sf::Vector2f position, float rotation, bool isActive, TextureName texture, std::vector<Path*> movementPath);
 
 	virtual void Update(float deltaTime);
 	virtual void Attack();

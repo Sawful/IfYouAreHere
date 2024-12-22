@@ -11,8 +11,6 @@ BulletSpawnerTriple::BulletSpawnerTriple(Enemy* owner, Level* currentStage)
 	mPlayerController = mCurrentStage->GetPlayerController();
 
 	mOwner = owner;
-
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
 }
 
 void BulletSpawnerTriple::SpawnBullet(sf::Vector2f targetPosition)
@@ -26,9 +24,9 @@ void BulletSpawnerTriple::SpawnBullet(sf::Vector2f targetPosition)
 
 	for (int i = 1; i < 4; i++)
 	{
-		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirection, getPosition(), getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f));
-		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirectionRight, getPosition(), getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f));
-		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirectionLeft, getPosition(), getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f));
+		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirection, getPosition(), getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f));
+		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirectionRight, getPosition(), getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f));
+		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirectionLeft, getPosition(), getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f));
 	}
 
 	bulletDirection = -bulletDirection;
@@ -37,9 +35,9 @@ void BulletSpawnerTriple::SpawnBullet(sf::Vector2f targetPosition)
 
 	for (int i = 1; i < 4; i++)
 	{
-		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirection, getPosition(), getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f));
-		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirectionRight, getPosition(), getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f));
-		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirectionLeft, getPosition(), getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f));
+		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirection, getPosition(), getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f));
+		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirectionRight, getPosition(), getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f));
+		mCurrentStage->AddToEntities(new BulletBase(1, 100.0f * i, bulletDirectionLeft, getPosition(), getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f));
 	}
 }
 

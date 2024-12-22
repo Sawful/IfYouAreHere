@@ -10,8 +10,6 @@ BulletSpawnerBoss14::BulletSpawnerBoss14(Enemy* owner)
 {
 	mOwner = owner;
 
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
-
 	mTurningRight = false;
 
 	mAcceleration = 0;
@@ -22,7 +20,7 @@ void BulletSpawnerBoss14::SpawnBullet()
 {
 	for (int i = 0; i < 32; i++)
 	{
-		BulletBase* newBullet = new BulletBase(1, 100.0f + mAcceleration, sf::Vector2f(cos(i * std::numbers::pi / 16), sin(i * std::numbers::pi / 16)), getPosition(), getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f);
+		BulletBase* newBullet = new BulletBase(1, 100.0f + mAcceleration, sf::Vector2f(cos(i * std::numbers::pi / 16), sin(i * std::numbers::pi / 16)), getPosition(), getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f);
 		mCurrentStage->AddToEntities(newBullet);
 		mBullets.push_back(newBullet);
 	}
@@ -92,7 +90,6 @@ BulletSpawnerBoss12::BulletSpawnerBoss12(Enemy* owner, Level* currentStage)
 
 	mOwner = owner;
 
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
 	mAttacking1 = false;
 	mAttacking2 = false;
 }
@@ -108,7 +105,7 @@ void BulletSpawnerBoss12::SpawnBullet()
 
 	bulletDirection = *RotateV2f(bulletDirection, rotationDelta);
 
-	BulletBase* newBullet = new BulletBase(1, 220.0f + speedDelta, bulletDirection, mOwner->getPosition(), 0, &mBulletTexture, ENEMYBULLET, true, 8.0f);
+	BulletBase* newBullet = new BulletBase(1, 220.0f + speedDelta, bulletDirection, mOwner->getPosition(), 0, BULLET_TEXTURE, ENEMYBULLET, true, 8.0f);
 	mCurrentStage->AddToEntities(newBullet);
 	mBullets.push_back(newBullet);
 }
@@ -197,8 +194,6 @@ BulletSpawnerBoss11Main::BulletSpawnerBoss11Main(Enemy* owner, Level* currentSta
 
 	mOwner = owner;
 
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
-
 	mShotsFired = 0;
 }
 
@@ -217,7 +212,7 @@ void BulletSpawnerBoss11Main::SpawnBullet()
 
 		bulletOffset = *RotateV2f(bulletOffset, i * std::numbers::pi / 8);
 
-		Bullet* newBullet = new BulletBase(1, 200.0f, bulletDirection, ownerPosition + bulletOffset, getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f);
+		Bullet* newBullet = new BulletBase(1, 200.0f, bulletDirection, ownerPosition + bulletOffset, getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f);
 
 		mBullets.push_back(newBullet);
 		mCurrentStage->AddToEntities(newBullet);
@@ -247,8 +242,6 @@ BulletSpawnerBoss11Sub::BulletSpawnerBoss11Sub(Enemy* owner)
 {
 	mOwner = owner;
 
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
-
 	mAttacking = false;
 }
 
@@ -261,7 +254,7 @@ void BulletSpawnerBoss11Sub::SpawnBullet()
 
 	bulletDirection = *RotateV2f(bulletDirection, rotation);
 
-	Bullet* newBullet = new BulletBase(1, 150.0f, bulletDirection, ownerPosition, getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f);
+	Bullet* newBullet = new BulletBase(1, 150.0f, bulletDirection, ownerPosition, getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f);
 
 	mBullets.push_back(newBullet);
 	mCurrentStage->AddToEntities(newBullet);
@@ -290,8 +283,6 @@ void BulletSpawnerBoss11Sub::Update(float dt)
 	if (mSubAttackDuration <= 0 && mAttacking)
 	{
 		mAttacking = false;
-
-		//mSubAttackTime = mSubAttackCooldown;
 	}
 }
 
@@ -301,8 +292,6 @@ BulletSpawnerBoss13::BulletSpawnerBoss13(Enemy* owner, Level* currentStage)
 	mPlayerController = mCurrentStage->GetPlayerController();
 
 	mOwner = owner;
-
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
 
 	mSpreading = true;
 	mSpread = 1.0f;
@@ -321,7 +310,7 @@ void BulletSpawnerBoss13::SpawnBullet()
 
 	bulletDirection = *RotateV2f(bulletDirection, rotation);
 
-	Bullet* newBullet = new BulletBase(1, 150.0f, bulletDirection, ownerPosition, getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f);
+	Bullet* newBullet = new BulletBase(1, 150.0f, bulletDirection, ownerPosition, getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f);
 
 	mBullets.push_back(newBullet);
 	mCurrentStage->AddToEntities(newBullet);

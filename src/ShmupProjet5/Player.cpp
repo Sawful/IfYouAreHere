@@ -5,7 +5,7 @@
 #include <iostream>
 
 
-Player::Player(sf::Vector2f position, float rotation, sf::Texture* texture, bool isActive, PlayerController* playerController): Character(position, rotation, texture, PLAYERTAG,  true)
+Player::Player(sf::Vector2f position, float rotation, TextureName texture, bool isActive, PlayerController* playerController): Character(position, rotation, texture, PLAYERTAG,  true)
 {
 	mIsCurrent = isActive;
 

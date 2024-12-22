@@ -12,7 +12,7 @@ class MenuButton: public Entity
 	sf::Texture* mTextureHovered;
 
 public:
-	MenuButton(sf::Vector2f position, float rotation, sf::Vector2f size, sf::Texture* texture, sf::Texture* textureHovered);
+	MenuButton(sf::Vector2f position, float rotation, sf::Vector2f size, TextureName texture, TextureName textureHovered);
 	
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	void SetHover(bool hover);

@@ -1,14 +1,14 @@
 #include "Entity.h"
 
 
-Entity::Entity(sf::Vector2f position, float rotation, sf::Texture* texture, bool isActive)
+Entity::Entity(sf::Vector2f position, float rotation, TextureName texture, bool isActive)
 {
 	mIsActive = isActive;
 
 	setPosition(position);
 	setRotation(rotation);
-	mTexture = texture;
 
+	mTexture = GameManager::GetInstance()->GetResourceManager()->GetTexture(texture);
 	mSprite.setTexture(*mTexture);
 }
 

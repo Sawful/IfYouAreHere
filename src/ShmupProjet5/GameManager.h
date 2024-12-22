@@ -25,6 +25,7 @@ protected:
 
 public:
 	static GameManager* GetInstance();
+	void Initialize();
 	SceneManager* GetSceneManager();
 	SoundManager* GetSoundManager();
 	ResourceManager* GetResourceManager();

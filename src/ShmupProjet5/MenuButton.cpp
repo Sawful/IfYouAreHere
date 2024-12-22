@@ -1,12 +1,14 @@
 #include "MenuButton.h"
 
 
-MenuButton::MenuButton(sf::Vector2f position, float rotation, sf::Vector2f size, sf::Texture* texture, sf::Texture* textureHovered): Entity(position, rotation, texture, true)
+MenuButton::MenuButton(sf::Vector2f position, float rotation, sf::Vector2f size, TextureName texture, TextureName textureHovered): Entity(position, rotation, texture, true)
 {
 	mRectangle = sf::RectangleShape(size);
 
-	mTexture = texture;
-	mTextureHovered = textureHovered;
+	mTexture = GameManager::GetInstance()->GetResourceManager()->GetTexture(texture);
+	mTextureHovered = GameManager::GetInstance()->GetResourceManager()->GetTexture(textureHovered);
+
+	mIsHovered = false;
 
 	mRectangle.setTexture(mTexture);
 }
@@ -24,18 +26,14 @@ void MenuButton::SetHover(bool hover)
 	if (mIsHovered)
 	{
 		mRectangle.setTexture(mTextureHovered);
-		//mRectangle.setRotation(15.0f);
 	}
 
 	else
 	{
 		mRectangle.setTexture(mTexture);
-		//mRectangle.setRotation(0.0f);
 	}
 }
 
 void MenuButton::Update(float deltaTime)
 {
-	
-	
 }

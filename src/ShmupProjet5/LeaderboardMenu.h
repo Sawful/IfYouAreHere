@@ -19,7 +19,7 @@ class LeaderboardMenu: public Scene
 	sf::Texture background;
 	sf::Font mLeaderboardFont;
 
-	sf::Sprite leadBackground;
+	sf::Sprite mLeaderboardBackground;
 
 	sf::View mLeaderboardView;
 
@@ -40,6 +40,7 @@ class LeaderboardMenu: public Scene
 
 public:
 	LeaderboardMenu(sf::RenderWindow* window);
+	void Initialize();
 	virtual void Update(float deltaTime) override;
 	void AddButton(MenuButton* button);
 	virtual void EnterScene();

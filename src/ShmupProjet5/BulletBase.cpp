@@ -6,7 +6,7 @@
 
 std::vector<BulletBase*> BulletBase::mInactiveBullets = std::vector<BulletBase*>();
 
-BulletBase::BulletBase(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, sf::Texture* texture, Tag bulletTag, bool isActive, float bulletSize):
+BulletBase::BulletBase(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, TextureName texture, Tag bulletTag, bool isActive, float bulletSize):
 	Bullet(speed, direction, position, rotation, texture, bulletTag, isActive)
 {
 	mDamage = damage;
@@ -21,14 +21,13 @@ void BulletBase::OnHit(Character* other)
 	Bullet::OnHit(other);
 }
 
-void BulletBase::SetStats(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, sf::Texture* texture, Tag bulletTag)
+void BulletBase::SetStats(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, TextureName texture, Tag bulletTag)
 {
 	mDamage = damage;
 	mSpeed = speed;
 	mDirection = direction;
 	setPosition(position);
 	setRotation(rotation);
-	mTexture = texture;
 
 	mSprite = sf::Sprite();
 	mSprite.setTexture(*mTexture);
@@ -56,7 +55,7 @@ void BulletBase::RemoveBullet()
 	mInactiveBullets.push_back(this);
 }
 
-BulletBase* BulletBase::InstantiateBullet(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, sf::Texture* texture, Tag bulletTag, Level* currentStage)
+BulletBase* BulletBase::InstantiateBullet(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, TextureName texture, Tag bulletTag, Level* currentStage)
 {
 	BulletBase* newBullet;
 	if (mInactiveBullets.size() > 0)

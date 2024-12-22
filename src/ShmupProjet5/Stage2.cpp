@@ -191,7 +191,7 @@ void Stage2::EnterScene()
 	mPlayerController->GetPlayers()[0]->setPosition(sf::Vector2f(400.0f, 700.0f));
 	mPlayerController->GetPlayers()[1]->setPosition(sf::Vector2f(400.0f, 100.0f));
 
-	AddToEntities(new Boss2(sf::Vector2f(400.0f, 400.0f), 0, true, &mBossTexture, &mDropTexture));
+	AddToEntities(new Boss2(sf::Vector2f(400.0f, 400.0f), 0, true, PARHELION_TEXTURE));
 
 	mStageTimer.restart();
 }

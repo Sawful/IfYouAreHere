@@ -11,8 +11,7 @@ mSoundManager(new SoundManager()),
 mResourceManager(new ResourceManager()),
 mSceneManager(new SceneManager(mWindow, this))
 {
-	mSceneManager->Initialize();
-	mCurrentScore = 0;
+	
 }
 
 GameManager* GameManager::GetInstance()
@@ -22,6 +21,12 @@ GameManager* GameManager::GetInstance()
 		mInstance = new GameManager();
 	}
 	return mInstance;
+}
+
+void GameManager::Initialize()
+{
+	mSceneManager->Initialize();
+	mCurrentScore = 0;
 }
 
 SceneManager* GameManager::GetSceneManager()

@@ -10,7 +10,7 @@ class BulletSnake: public Bullet
 	sf::Vector2f mBaseDirection;
 
 public:
-	BulletSnake(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, sf::Texture* texture, Tag bulletTag, bool isActive, float rotateOffset);
+	BulletSnake(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, TextureName texture, Tag bulletTag, bool isActive, float rotateOffset);
 	virtual void OnHit(Character* other) override;
 	virtual void Update(float deltaTime) override;
 };

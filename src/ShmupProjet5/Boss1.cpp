@@ -4,11 +4,9 @@
 #include "SceneManager.h"
 #include "Drop.h"
 
-Boss1::Boss1(sf::Vector2f position, float rotation, bool isActive, sf::Texture* texture, sf::Texture* dropTexture):
-	Enemy(position, rotation, 0, texture, dropTexture, isActive)
+Boss1::Boss1(sf::Vector2f position, float rotation, bool isActive, TextureName texture):
+	Enemy(position, rotation, 0, texture, isActive)
 {
-	mTexture = texture;
-	
 	mHealth = 4000;
 	// Phase 1: 750hp
 	// Phase 2: 1250hp

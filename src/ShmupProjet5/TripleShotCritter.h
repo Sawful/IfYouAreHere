@@ -9,7 +9,7 @@ class TripleShotCritter : public Enemy
 	float mAttackAnimationTime;*/
 
 public:
-	TripleShotCritter(sf::Vector2f position, float rotation, bool isActive, sf::Texture* texture, sf::Texture* dropTexture, std::vector<Path*> movementPath);
+	TripleShotCritter(sf::Vector2f position, float rotation, bool isActive, TextureName texture, std::vector<Path*> movementPath);
 
 	virtual void Update(float deltaTime);
 	virtual void Attack();

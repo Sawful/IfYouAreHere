@@ -11,8 +11,6 @@ class BulletSpawnerBoss11Main : public BulletSpawner
 
 	int mShotsFired;
 
-	sf::Texture mBulletTexture;
-
 	Enemy* mOwner;
 	PlayerController* mPlayerController;
 
@@ -34,8 +32,6 @@ class BulletSpawnerBoss11Sub : public BulletSpawner
 
 	float mSubAttackDuration = 3.0f;
 	bool mAttacking;
-
-	sf::Texture mBulletTexture;
 	Enemy* mOwner;
 
 public:
@@ -59,8 +55,6 @@ class BulletSpawnerBoss12 : public BulletSpawner
 
 	bool mAttacking1;
 	bool mAttacking2;
-	
-	sf::Texture mBulletTexture;
 
 	Enemy* mOwner;
 	PlayerController* mPlayerController;
@@ -85,8 +79,6 @@ class BulletSpawnerBoss13 : public BulletSpawner
 	float mSpreadTime = 15.0f;
 	float mSpread;
 
-	sf::Texture mBulletTexture;
-
 	Enemy* mOwner;
 	PlayerController* mPlayerController;
 
@@ -110,8 +102,6 @@ class BulletSpawnerBoss14 : public BulletSpawner
 	bool mAccelerating;
 	float mAccelerationCooldown = 20.0f;
 	float mAccelerationTime = 20.0f;
-
-	sf::Texture mBulletTexture;
 
 	Enemy* mOwner;
 

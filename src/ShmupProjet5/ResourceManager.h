@@ -1,18 +1,39 @@
 #pragma once
 #include "SFML/Graphics.hpp"
+#include <unordered_map>
 
 
 enum TextureName
 {
-	LIGHT_KITTY,
-	DARK_KITTY
+	LIGHT_KITTY_TEXTURE,
+	DARK_KITTY_TEXTURE,
+	SLUG_TEXTURE,
+	CIRCLE_TEXTURE,
+	TRIPLE_TEXTURE,
+	BULLET_TEXTURE,
+	BULLET_LIGHT_1,
+	BULLET_LIGHT_2,
+	BULLET_LIGHT_3,
+	BULLET_DARK_1,
+	BULLET_DARK_2,
+	BULLET_DARK_3,
+	DROP_TEXTURE,
+	BUTTON_TEXTURE,
+	BUTTON_HOVERED_TEXTURE,
+	AMALGAMATION_TEXTURE,
+	PARHELION_TEXTURE,
+	PLAY_BUTTON_TEXTURE,
+	PLAY_BUTTON_HOVERED_TEXTURE,
+	QUIT_BUTTON_TEXTURE,
+	QUIT_BUTTON_HOVERED_TEXTURE,
+	LASER_TEXTURE,
+	MENU_BACKGROUND_TEXTURE,
+	DINOCAT_TEXTURE
 };
 
 class ResourceManager
 {
-	sf::Texture mDinoKittyLight;
-	sf::Texture mDinoKittyDark;
-
+	std::unordered_map<TextureName, sf::Texture> mTextures;
 
 public:
 	ResourceManager();

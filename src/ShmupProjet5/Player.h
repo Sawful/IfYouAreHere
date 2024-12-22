@@ -19,7 +19,7 @@ class Player: public Character
 	
 	
 public:
-	Player(sf::Vector2f position, float rotation, sf::Texture* texture, bool isActive, PlayerController* playerController);
+	Player(sf::Vector2f position, float rotation, TextureName texture, bool isActive, PlayerController* playerController);
 	virtual void Update(float deltaTime);
 	virtual void Move(float deltaTime, sf::Vector2f direction);
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;

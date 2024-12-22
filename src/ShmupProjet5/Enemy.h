@@ -22,7 +22,7 @@ protected:
 	int mPathNumber;
 
 public:
-	Enemy(sf::Vector2f position, float rotation, int dropAmount, sf::Texture* texture, sf::Texture* dropTexture, bool isActive);
+	Enemy(sf::Vector2f position, float rotation, int dropAmount, TextureName texture, bool isActive);
 	virtual void TakeDamage(int damage);
 	virtual void Die();
 	virtual void Attack() = 0;

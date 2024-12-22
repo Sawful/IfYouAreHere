@@ -1,26 +1,27 @@
 #include "LeaderboardMenu.h"
 #include "GameManager.h"
 #include "SceneManager.h"
-//#include <bits/stdc++.h>
 #include <string>
 
 
 LeaderboardMenu::LeaderboardMenu(sf::RenderWindow* window) : Scene(window)
 {
-	mButtonTexture.loadFromFile("..\\..\\..\\res\\superbouton.png");
-	mButtonTextureHovered.loadFromFile("..\\..\\..\\res\\superbouton_hovered.png");
-	mLeaderboardFont.loadFromFile("../../../res/Gobold Regular.otf");
-	background.loadFromFile("../../../res/mainbackground.png");
+	
+}
 
-	leadBackground.setTexture(background);
-	leadBackground.setScale(sf::Vector2f(2, 2));
+void LeaderboardMenu::Initialize()
+{
+	mLeaderboardFont.loadFromFile("../../../res/Gobold Regular.otf");
+
+	mLeaderboardBackground.setTexture(background);
+	mLeaderboardBackground.setScale(sf::Vector2f(2, 2));
 
 	mLeaderboardView = sf::View(sf::FloatRect(0, 0, 1200, 900));
 
 	mButtonHovered = 0;
 
-	AddButton(new MenuButton(sf::Vector2f(950.0f, 600.0f), 0.0f, sf::Vector2f(200.0f, 80.0f), &mButtonTexture, &mButtonTextureHovered));
-	AddButton(new MenuButton(sf::Vector2f(950.0f, 700.0f), 0.0f, sf::Vector2f(200.0f, 80.0f), &mButtonTexture, &mButtonTextureHovered));
+	AddButton(new MenuButton(sf::Vector2f(950.0f, 600.0f), 0.0f, sf::Vector2f(200.0f, 80.0f), BUTTON_TEXTURE, BUTTON_HOVERED_TEXTURE));
+	AddButton(new MenuButton(sf::Vector2f(950.0f, 700.0f), 0.0f, sf::Vector2f(200.0f, 80.0f), BUTTON_TEXTURE, BUTTON_HOVERED_TEXTURE));
 
 	mLeaderboardButtons[0]->SetHover(true);
 }
@@ -109,7 +110,7 @@ void LeaderboardMenu::EnterScene()
 
 void LeaderboardMenu::Draw()
 {
-	mCurrentWindow->draw(leadBackground);
+	mCurrentWindow->draw(mLeaderboardBackground);
 
 	Scene::Draw();
 

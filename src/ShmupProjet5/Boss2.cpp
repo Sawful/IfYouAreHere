@@ -4,8 +4,8 @@
 #include "SceneManager.h"
 #include "Path.h"
 
-Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, sf::Texture* texture, sf::Texture* dropTexture):
-	Enemy(position, rotation, 0, texture, dropTexture, isActive)
+Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName texture):
+	Enemy(position, rotation, 0, texture, isActive)
 {
 	mPermaClock = sf::Clock();
 	mPermaClock.restart();
@@ -20,11 +20,7 @@ Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, sf::Texture* 
 	mPreviewRectangle->setOutlineColor(sf::Color::Transparent);
 	mPreviewRectangle->setOutlineThickness(10.0f);
 
-	mLaser = new sf::Sprite;
-
-	mLaserTexture.loadFromFile("..\\..\\..\\res\\laser.png");
-	mLaser->setTexture(mLaserTexture);
-
+	mLaser->setTexture(*mGameManager->GetResourceManager()->GetTexture(LASER_TEXTURE));
 	mLaser->setScale(sf::Vector2f(12.0f, 3.0f));
 	mLaser->setOrigin(sf::Vector2f(0.0f, 50.0f));
 
@@ -54,19 +50,16 @@ Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, sf::Texture* 
 	mPattern1.patternPath.push_back(new PointPath(sf::Vector2f(400.0f, 400.0f), 1.0f));
 
 	mPattern1.patternSpawners.push_back(new BulletSpawnerBoss21(this, mCurrentStage));
-	//mPattern1.patternSpawners.push_back(mPermaSpawner);
 
 	mPattern2.patternPath.push_back(new PointPath(sf::Vector2f(400.0f, 400.0f), 5.0f));
 
 	mPattern2.patternSpawners.push_back(new BulletSpawnerBoss22(this, mCurrentStage));
-	mPattern2.patternSpawners.push_back(mPermaSpawner);
 
 	mPattern3.patternPath.push_back(new LinePath(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(0.0f, -150.0f), 0.5f));
 	mPattern3.patternPath.push_back(new PointPath(sf::Vector2f(400.0f, 250.0f), 3.0f));
 	mPattern3.patternPath.push_back(new LinePath(sf::Vector2f(400.0f, 250.0f), sf::Vector2f(0.0f, 150.0f), 0.5f));
 
 	mPattern3.patternSpawners.push_back(new BulletSpawnerBoss23(this, mCurrentStage));
-	mPattern3.patternSpawners.push_back(mPermaSpawner);
 
 	mPattern4.patternPath.push_back(new LinePath(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(0.0f, 150.0f), 0.5f));
 	mPattern4.patternPath.push_back(new PointPath(sf::Vector2f(400.0f, 550.0f), 3.0f));
@@ -182,8 +175,6 @@ void Boss2::Move(float deltaTime)
 		{
 			mCurrentPattern->patternPath[0]->ResetCompletion();
 		}
-
-		//Phase 2 Satori time
 	}
 }
 

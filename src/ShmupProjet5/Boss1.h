@@ -40,7 +40,7 @@ class Boss1 : public Enemy
 	std::vector<Path*>* mCurrentMovementPath;
 
 public:
-	Boss1(sf::Vector2f position, float rotation, bool isActive, sf::Texture* texture, sf::Texture* dropTexture);
+	Boss1(sf::Vector2f position, float rotation, bool isActive, TextureName texture);
 
 	virtual void Update(float deltaTime);
 	virtual void Attack();

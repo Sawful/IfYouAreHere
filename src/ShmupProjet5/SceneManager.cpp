@@ -11,11 +11,10 @@ SceneManager::SceneManager(sf::RenderWindow* window, GameManager* gm): mMainMenu
 void SceneManager::Initialize()
 {
 	ChangeScene(&mMainMenu);
+	mMainMenu.Initialize();
+	leaderboardMenu.Initialize();
 
-	sf::Texture pcTexture;
-	pcTexture.loadFromFile("..\\..\\..\\res\\BulletTest.png");
-
-	mPlayerController = new PlayerController(&pcTexture, mGameManager);
+	mPlayerController = new PlayerController(LIGHT_KITTY_TEXTURE, mGameManager);
 
 	mOverlayAlpha = 0;
 

@@ -6,15 +6,15 @@
 #include "ResourceManager.h"
 
 
-PlayerController::PlayerController(sf::Texture* pcTexture, GameManager* gm): Entity(sf::Vector2f(0.0f, 0.0f), 0.0f, pcTexture, true)
+PlayerController::PlayerController(TextureName pcTexture, GameManager* gm): Entity(sf::Vector2f(0.0f, 0.0f), 0.0f, pcTexture, true)
 {
     mGameManager = gm;    
     
-    mPlayerTexture = *(gm->GetResourceManager()->GetTexture(LIGHT_KITTY));
-    mPlayerAlterTexture = *(gm->GetResourceManager()->GetTexture(DARK_KITTY));
+    mPlayerTexture = *(gm->GetResourceManager()->GetTexture(LIGHT_KITTY_TEXTURE));
+    mPlayerAlterTexture = *(gm->GetResourceManager()->GetTexture(DARK_KITTY_TEXTURE));
 
-    mPlayer = new Player(sf::Vector2f(0.0f, 0.0f), 0.0f, &mPlayerTexture, true, this);
-    mPlayerAlter = new Player(sf::Vector2f(0.0f, 0.0f), 0.0f, &mPlayerAlterTexture, false, this);
+    mPlayer = new Player(sf::Vector2f(0.0f, 0.0f), 0.0f, LIGHT_KITTY_TEXTURE, true, this);
+    mPlayerAlter = new Player(sf::Vector2f(0.0f, 0.0f), 0.0f, DARK_KITTY_TEXTURE, false, this);
 
     mPlayerWeapon1Dark = new PlayerWeapon1Dark(mPlayerAlter);
     mPlayerWeapon2Dark = new PlayerWeapon2Dark(mPlayerAlter);

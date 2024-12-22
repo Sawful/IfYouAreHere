@@ -3,7 +3,7 @@
 #include "SceneManager.h"
 #include "Drop.h"
 
-Enemy::Enemy(sf::Vector2f position, float rotation, int dropAmount, sf::Texture* texture, sf::Texture* dropTexture, bool isActive):
+Enemy::Enemy(sf::Vector2f position, float rotation, int dropAmount, TextureName texture, bool isActive):
 	Character(position, rotation, texture, ENEMYTAG, isActive)
 {
 	mPathNumber = 0;
@@ -15,7 +15,7 @@ Enemy::Enemy(sf::Vector2f position, float rotation, int dropAmount, sf::Texture*
 
 	mCurrentStage = mGameManager->GetSceneManager()->GetCurrentStage();
 
-	mDropTexture = dropTexture;
+	mDropTexture = mGameManager->GetResourceManager()->GetTexture(DROP_TEXTURE);
 }
 
 void Enemy::TakeDamage(int damage)
@@ -41,7 +41,7 @@ void Enemy::Die()
 	// Drop (done)
 	for(int i = 0; i < mDropAmount; i++)
 	{
-		mCurrentStage->AddToEntities(new Drop(getPosition(), 15.0f, mDropTexture));
+		mCurrentStage->AddToEntities(new Drop(getPosition(), 15.0f, DROP_TEXTURE));
 	}
 
 	// Death vfx / sfx

@@ -2,10 +2,9 @@
 #include "GameManager.h"
 #include "SceneManager.h"
 
-TripleShotCritter::TripleShotCritter(sf::Vector2f position, float rotation, bool isActive, sf::Texture* texture, sf::Texture* dropTexture, std::vector<Path*> movementPath) :
-Enemy(position, rotation, 3, texture, dropTexture, isActive)
+TripleShotCritter::TripleShotCritter(sf::Vector2f position, float rotation, bool isActive, TextureName texture, std::vector<Path*> movementPath) :
+Enemy(position, rotation, 3, texture, isActive)
 {
-	mTexture = texture;
 	mMovementPath = movementPath;
 	mBulletSpawnerPTR = new BulletSpawnerTriple(this, mCurrentStage);
 

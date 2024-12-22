@@ -12,6 +12,9 @@ int main()
 	srand(time(nullptr));
 
 	GameManager* gm = GameManager::GetInstance();
+
+	gm->Initialize();
+	
 	sf::RenderWindow* window = gm->GetWindow();
 	SceneManager* sm = gm->GetSceneManager();
 	PlayerController* pc = sm->GetPlayerController();

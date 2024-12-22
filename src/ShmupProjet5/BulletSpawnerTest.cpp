@@ -9,8 +9,6 @@ BulletSpawnerTest::BulletSpawnerTest(Enemy* owner) : BulletSpawner()
 	mPlayerController = mCurrentStage->GetPlayerController();
 
 	mOwner = owner;
-
-	mBulletTexture.loadFromFile("..\\..\\..\\res\\bullet.png");
 }
 
 void BulletSpawnerTest::SpawnBullet(sf::Vector2f targetPosition)
@@ -26,7 +24,7 @@ void BulletSpawnerTest::SpawnBullet(sf::Vector2f targetPosition)
 	
 	//InstantiateBullet(150.0f, bulletDirection, getPosition(), getRotation(), &mBulletTexture);
 
-	mCurrentStage->AddToEntities(new BulletBase(1, 150.0f, bulletDirection, getPosition(), getRotation(), &mBulletTexture, ENEMYBULLET, true, 8.0f));
+	mCurrentStage->AddToEntities(new BulletBase(1, 150.0f, bulletDirection, getPosition(), getRotation(), BULLET_TEXTURE, ENEMYBULLET, true, 8.0f));
 }
 
 void BulletSpawnerTest::Update(float dt)

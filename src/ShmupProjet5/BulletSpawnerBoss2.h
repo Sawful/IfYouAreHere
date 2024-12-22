@@ -9,8 +9,6 @@ class BulletSpawnerBoss2Phase1Perma : public BulletSpawner
 {
 	float mRotation;
 
-	sf::Texture mBulletTexture;
-
 	Enemy* mOwner;
 
 public:
@@ -35,8 +33,6 @@ class BulletSpawnerBoss21 : public BulletSpawner
 
 	float mShotTime = 0.0f;
 	float mShotCooldown = 0.125f;
-
-	sf::Texture mBulletTexture;
 
 	Boss2* mOwner;
 
@@ -68,8 +64,6 @@ class BulletSpawnerBoss22 : public BulletSpawner
 	float mAttackDurationTimer;
 
 	bool mHasAttacked;
-
-	sf::Texture mBulletTexture;
 
 	Boss2* mOwner;
 
@@ -105,8 +99,6 @@ class BulletSpawnerBoss23 : public BulletSpawner
 
 	bool mHasAttacked;
 
-	sf::Texture mBulletTexture;
-
 	Boss2* mOwner;
 
 	sf::RenderWindow* mWindow;
@@ -138,8 +130,6 @@ class BulletSpawnerBoss24 : public BulletSpawner
 
 	bool mHasAttacked;
 
-	sf::Texture mBulletTexture;
-
 	Boss2* mOwner;
 
 	sf::RenderWindow* mWindow;
@@ -165,8 +155,6 @@ class BulletSpawnerBoss25 : public BulletSpawner
 	bool mRotating = true;
 	float mRotationCooldown = 10.0f;
 	float mRotationTime = 10.0f;
-
-	sf::Texture mBulletTexture;
 
 	Enemy* mOwner;
 
