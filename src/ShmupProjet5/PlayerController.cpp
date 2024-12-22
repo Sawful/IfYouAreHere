@@ -234,6 +234,8 @@ void PlayerController::Reset()
     mPlayer->ClearWeapons();
     mPlayerAlter->ClearWeapons();
 
+    mWeaponPower = 0;
+
     mPlayer->AddWeapon(mPlayerWeapon1Light);
     mPlayerAlter->AddWeapon(mPlayerWeapon1Dark);
 

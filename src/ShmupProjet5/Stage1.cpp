@@ -57,7 +57,7 @@ void Stage1::SpawnWave(int wave)
 		wavePath.push_back(new BezierCurvePath(sf::Vector2f(150.0f, 300.0f), sf::Vector2f(0.0f, 300.0f), sf::Vector2f(0.0f, 500.0f), sf::Vector2f(150.0f, 500.0f), 3.0f));
 		wavePath.push_back(new LinePath(sf::Vector2f(150.0f, 500.0f), sf::Vector2f(700.0f, 0.0f), 7.0f));
 
-		AddToEntities(new ShotSlug1(sf::Vector2f(650.0f, 300.0f), 0, true, &mShotSlugTexture, &mDropTexture, wavePath));
+		AddToEntities(new ShotSlug1(sf::Vector2f(850.0f, 300.0f), 0, true, &mShotSlugTexture, &mDropTexture, wavePath));
 
 		mTimeUntilNextWave = 1.0f;
 		break;
@@ -136,7 +136,7 @@ void Stage1::SpawnWave(int wave)
 			wavePath.push_back(new LinePath(sf::Vector2f(100.0f + 150.0f * i, 400.0f), sf::Vector2f(150.0f, 0.0f), 1.0f));
 		}
 
-		AddToEntities(new BigCircleGuy(sf::Vector2f(850.0f, 400.0f), 0, true, &mCircleGuyTexture, &mDropTexture, wavePath));
+		AddToEntities(new BigCircleGuy(sf::Vector2f(-50.0f, 400.0f), 0, true, &mCircleGuyTexture, &mDropTexture, wavePath));
 
 		mTimeUntilNextWave = 5.0f;
 
@@ -168,11 +168,11 @@ void Stage1::SpawnWave(int wave)
 
 		wavePath.clear();
 
-		wavePath.push_back(new BezierCurvePath(sf::Vector2f(50.0f, 400.0f), sf::Vector2f(50.0f, 300.0f), sf::Vector2f(250.0f, 300.0f), sf::Vector2f(250.0f, 400.0f), 6.0f));
+		wavePath.push_back(new BezierCurvePath(sf::Vector2f(-50.0f, 400.0f), sf::Vector2f(-50.0f, 300.0f), sf::Vector2f(250.0f, 300.0f), sf::Vector2f(250.0f, 400.0f), 6.0f));
 		wavePath.push_back(new BezierCurvePath(sf::Vector2f(250.0f, 400.0f), sf::Vector2f(250.0f, 500.0f), sf::Vector2f(550.0f, 500.0f), sf::Vector2f(550.0f, 400.0f), 6.0f));
 		wavePath.push_back(new BezierCurvePath(sf::Vector2f(550.0f, 400.0f), sf::Vector2f(550.0f, 300.0f), sf::Vector2f(850.0f, 300.0f), sf::Vector2f(850.0f, 400.0f), 6.0f));
 
-		AddToEntities(new TripleShotCritter(sf::Vector2f(850.0f, 400.0f), 0, true, &mTripleShotTexture, &mDropTexture, wavePath));
+		AddToEntities(new TripleShotCritter(sf::Vector2f(-50.0f, 400.0f), 0, true, &mTripleShotTexture, &mDropTexture, wavePath));
 
 		mTimeUntilNextWave = 5.0f;
 
@@ -230,7 +230,7 @@ void Stage1::SpawnWave(int wave)
 		wavePath.push_back(new BezierCurvePath(sf::Vector2f(250.0f, 400.0f), sf::Vector2f(250.0f, 500.0f), sf::Vector2f(550.0f, 500.0f), sf::Vector2f(550.0f, 400.0f), 6.0f));
 		wavePath.push_back(new BezierCurvePath(sf::Vector2f(550.0f, 400.0f), sf::Vector2f(550.0f, 300.0f), sf::Vector2f(850.0f, 300.0f), sf::Vector2f(850.0f, 400.0f), 6.0f));
 
-		AddToEntities(new TripleShotCritter(sf::Vector2f(850.0f, 400.0f), 0, true, &mTripleShotTexture, &mDropTexture, wavePath));
+		AddToEntities(new TripleShotCritter(sf::Vector2f(50.0f, 400.0f), 0, true, &mTripleShotTexture, &mDropTexture, wavePath));
 		mTimeUntilNextWave = 12.0f;
 		break;
 
@@ -239,7 +239,7 @@ void Stage1::SpawnWave(int wave)
 		AddToEntities(new BigCircleGuy(sf::Vector2f(850.0f, 400.0f), 0, true, &mCircleGuyTexture, &mDropTexture, wavePath));
 		wavePath.clear();
 		wavePath.push_back(new LinePath(sf::Vector2f(-50.0f, 450.0f), sf::Vector2f(900.0f, 0.0f), 9.0f));
-		AddToEntities(new BigCircleGuy(sf::Vector2f(850.0f, 400.0f), 0, true, &mCircleGuyTexture, &mDropTexture, wavePath));
+		AddToEntities(new BigCircleGuy(sf::Vector2f(-50.0f, 400.0f), 0, true, &mCircleGuyTexture, &mDropTexture, wavePath));
 		mTimeUntilNextWave = 10.0f;
 		break;
 

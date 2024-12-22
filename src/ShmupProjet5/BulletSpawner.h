@@ -3,7 +3,7 @@
 #include "Scene.h"
 #include "Level.h"
 #include "ctime"
-//#include "SFML/Graphics.hpp"
+#include "SFML/Graphics.hpp"
 
 sf::Vector2f* RotateV2f(sf::Vector2f v, float delta);
 sf::Vector2f* NormalizeV2f(sf::Vector2f v);

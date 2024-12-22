@@ -19,7 +19,7 @@ protected:
 	SoundManager* mSoundManager;
 
 	GameManager();
-	int currentScore;
+	int mCurrentScore;
 
 public:
 	static GameManager* GetInstance();
@@ -32,5 +32,6 @@ public:
 	
 	void RaiseScore(int points);
 	int GetScore();
+	void ResetScore();
 };
 

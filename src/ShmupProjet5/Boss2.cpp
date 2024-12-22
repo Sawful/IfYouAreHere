@@ -208,6 +208,8 @@ void Boss2::Die()
 
 void Boss2::TakeDamage(int damage)
 {
+	Enemy::TakeDamage(damage);
+
 	if (mHealth <= 5000)
 	{
 		mState = Phase2;

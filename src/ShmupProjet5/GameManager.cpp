@@ -10,7 +10,7 @@ mSoundManager(new SoundManager()),
 mSceneManager(new SceneManager(mWindow, this))
 {
 	mSceneManager->GetCurrentScene();
-	currentScore = 0;
+	mCurrentScore = 0;
 }
 
 GameManager* GameManager::GetInstance()
@@ -56,11 +56,16 @@ bool GameManager::HasPauseTimeEnded()
 }
 
 void GameManager::RaiseScore(int points) {
-	currentScore += points;
+	mCurrentScore += points;
 }
 
 int GameManager::GetScore()
 {
-	return currentScore;
+	return mCurrentScore;
+}
+
+void GameManager::ResetScore()
+{
+	mCurrentScore = 0;
 }
 

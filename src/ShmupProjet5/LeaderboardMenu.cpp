@@ -15,7 +15,7 @@ LeaderboardMenu::LeaderboardMenu(sf::RenderWindow* window) : Scene(window)
 	leadBackground.setTexture(background);
 	leadBackground.setScale(sf::Vector2f(2, 2));
 
-	mLeaderboardView = sf::View(sf::FloatRect(0, 0, 1200, 800));
+	mLeaderboardView = sf::View(sf::FloatRect(0, 0, 1200, 900));
 
 	mButtonHovered = 0;
 
@@ -69,7 +69,7 @@ void LeaderboardMenu::Update(float deltaTime)
 		mLeaderboardButtons[mButtonHovered]->SetHover(true);
 	}
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Z))
 	{
 		if (mButtonConfirmTime > 0.0f)
 		{
@@ -160,9 +160,14 @@ void LeaderboardMenu::GetPreviousScore()
 	mScoreFile.close();
 
 	line = ScoreLine();
-	line.score = GameManager::GetInstance()->GetScore();
+
+	GameManager* gm = GameManager::GetInstance();
+
+	line.score = gm->GetScore();
 	strcpy_s(line.name, "> "); //here was name
 	mHighscore.push_back(line);
+
+	gm->ResetScore();
 }
 
 void LeaderboardMenu::SaveScore()
