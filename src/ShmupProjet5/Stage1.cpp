@@ -303,10 +303,10 @@ void Stage1::EnterScene()
 	AddToEntities(mPlayerController->GetPlayers()[0]);
 	AddToEntities(mPlayerController->GetPlayers()[1]);
 
-	/*for (int i = 0; i < 32; i++)
+	for (int i = 0; i < 32; i++)
 	{
 		mPlayerController->IncreaseWeaponPower(1);
-	}*/
+	}
 
 	mPlayerController->GetPlayers()[0]->setPosition(sf::Vector2f(400.0f, 700.0f));
 	mPlayerController->GetPlayers()[1]->setPosition(sf::Vector2f(400.0f, 100.0f));

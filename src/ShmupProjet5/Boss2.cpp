@@ -205,11 +205,16 @@ void Boss2::TakeDamage(int damage)
 
 	if (mHealth <= 5000)
 	{
+		mCurrentPattern->patternSpawners[0]->Reset();
+		DisplayLaser(false);
+
 		mState = Phase2;
 		mCurrentPattern = &mPattern5;
 
 		mGameManager->GetSceneManager()->ShakeStage2(10000);
 		mGameManager->GetSceneManager()->UnzoomStage2();
+
+		
 	}
 }
 
