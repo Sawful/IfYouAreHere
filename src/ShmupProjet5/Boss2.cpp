@@ -20,6 +20,8 @@ Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName t
 	mPreviewRectangle->setOutlineColor(sf::Color::Transparent);
 	mPreviewRectangle->setOutlineThickness(10.0f);
 
+	mLaser = new sf::Sprite();
+
 	mLaser->setTexture(*mGameManager->GetResourceManager()->GetTexture(LASER_TEXTURE));
 	mLaser->setScale(sf::Vector2f(12.0f, 3.0f));
 	mLaser->setOrigin(sf::Vector2f(0.0f, 50.0f));
