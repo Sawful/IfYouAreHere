@@ -4,7 +4,7 @@
 #include "SceneManager.h"
 #include "Path.h"
 
-Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName texture):
+Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName texture) :
 	Enemy(position, rotation, 0, texture, isActive)
 {
 	mPermaClock = sf::Clock();
@@ -33,6 +33,7 @@ Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName t
 	mState = Waiting;
 	mPathNumber = 0;
 
+#pragma region PATTERNS
 	mPatternWaiting.patternPath.push_back(new PointPath(sf::Vector2f(400.0f, 400.0f), 21.5f));
 
 	mPattern1.patternPath.push_back(new LinePath(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(800.0f, 0.0f), 3));
@@ -83,6 +84,8 @@ Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName t
 	mSprite.setScale(sf::Vector2f(3, 3));
 	mSprite.setOrigin(sf::Vector2f(36, 36));
 	mSprite.setTextureRect(sf::IntRect(0, 0, 72, 72));
+#pragma endregion
+
 }
 
 void Boss2::Update(float deltaTime)
@@ -98,7 +101,7 @@ void Boss2::Update(float deltaTime)
 		if (mFaceChangeTimeWaiting < 0)
 		{
 			mFaceChangeTimeWaiting = mFaceChangeCooldownWaiting;
-			int currFace = rand() % 4;
+			int currFace = rand() % 6;
 
 			mSprite.setTextureRect(sf::IntRect(72 * currFace, 0, 72, 72));
 		}
