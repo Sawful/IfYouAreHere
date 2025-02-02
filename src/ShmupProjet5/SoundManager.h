@@ -1,5 +1,7 @@
 #pragma once
 #include "SFML/Audio.hpp"
+#include <unordered_map>
+
 
 enum SoundType
 {
@@ -18,23 +20,10 @@ enum MusicType
 
 class SoundManager
 {
-	sf::Sound mHitSound;
-	sf::SoundBuffer mHitSoundBuffer;
-
-	sf::Sound mEnemyDeathSound;
-	sf::SoundBuffer mEnemyDeathSoundBuffer;
-
-	sf::Sound mWeaponUpSound;
-	sf::SoundBuffer mWeaponUpSoundBuffer;
-
-	sf::Sound mPickupSound;
-	sf::SoundBuffer mPickupSoundBuffer;
-
 	sf::Music* mCurrentMusic;
 
-	sf::Music mStage1;
-	sf::Music mStage1Boss;
-	sf::Music mStage2Boss;
+	std::unordered_map<SoundType, std::pair<sf::Sound, sf::SoundBuffer>> mSounds;
+	std::unordered_map<MusicType, sf::Music> mMusics;
 
 public:
 	SoundManager();

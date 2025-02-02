@@ -2,59 +2,48 @@
 
 SoundManager::SoundManager()
 {
-	mHitSoundBuffer.loadFromFile("..\\..\\..\\res\\hitsound.mp3");
-	mHitSound.setBuffer(mHitSoundBuffer);
-	mHitSound.setVolume(70);
+	mSounds[HITSOUND].second.loadFromFile("..\\..\\..\\res\\hitsound.mp3");
+	mSounds[HITSOUND].first.setBuffer(mSounds[HITSOUND].second);
+	mSounds[HITSOUND].first.setVolume(70);
 
-	mPickupSoundBuffer.loadFromFile("..\\..\\..\\res\\pickup.mp3");
-	mPickupSound.setBuffer(mPickupSoundBuffer);
-	mPickupSound.setVolume(70);
+	mSounds[PICKUPSOUND].second.loadFromFile("..\\..\\..\\res\\pickup.mp3");
+	mSounds[PICKUPSOUND].first.setBuffer(mSounds[PICKUPSOUND].second);
+	mSounds[PICKUPSOUND].first.setVolume(70);
 
-	mWeaponUpSoundBuffer.loadFromFile("..\\..\\..\\res\\weaponup.mp3");
-	mWeaponUpSound.setBuffer(mWeaponUpSoundBuffer);
-	mWeaponUpSound.setVolume(70);
+	mSounds[WEAPONUPSOUND].second.loadFromFile("..\\..\\..\\res\\weaponup.mp3");
+	mSounds[WEAPONUPSOUND].first.setBuffer(mSounds[WEAPONUPSOUND].second);
+	mSounds[WEAPONUPSOUND].first.setVolume(70);
 
-	mEnemyDeathSoundBuffer.loadFromFile("..\\..\\..\\res\\enemydeath.mp3");
-	mEnemyDeathSound.setBuffer(mEnemyDeathSoundBuffer);
-	mEnemyDeathSound.setVolume(50);
+	mSounds[ENEMYDEATHSOUND].second.loadFromFile("..\\..\\..\\res\\enemydeath.mp3");
+	mSounds[ENEMYDEATHSOUND].first.setBuffer(mSounds[ENEMYDEATHSOUND].second);
+	mSounds[ENEMYDEATHSOUND].first.setVolume(50);
 
-	mStage1.openFromFile("..\\..\\..\\res\\FungalDream.mp3");
-	mStage1.setVolume(10);
-	mStage1Boss.openFromFile("..\\..\\..\\res\\touhoulike2.mp3");
-	mStage1Boss.setVolume(20);
+	mMusics[STAGE1].openFromFile("..\\..\\..\\res\\FungalDream.mp3");
+	mMusics[STAGE1].setVolume(10);
 
-	mStage2Boss.openFromFile("..\\..\\..\\res\\parhelion.mp3");
-	mStage2Boss.setVolume(20);
+	mMusics[STAGE1BOSS].openFromFile("..\\..\\..\\res\\touhoulike2.mp3");
+	mMusics[STAGE1BOSS].setVolume(20);
+
+	mMusics[STAGE2BOSS].openFromFile("..\\..\\..\\res\\parhelion.mp3");
+	mMusics[STAGE2BOSS].setVolume(20);
 }
 
 SoundManager::~SoundManager()
 {
-	mHitSound.stop();
-	mPickupSound.stop();
-	mWeaponUpSound.stop();
-	mEnemyDeathSound.stop();
-	mStage1.stop();
-	mStage1Boss.stop();
-	mStage2Boss.stop();
+	for (auto& sounds : mSounds)
+	{
+		sounds.second.first.stop();
+	}
+
+	for (auto& musics : mMusics)
+	{
+		musics.second.stop();
+	}
 }
 
 void SoundManager::PlaySound(SoundType sound)
 {
-	switch(sound)
-	{
-	case HITSOUND:
-		mHitSound.play();
-		break;
-	case ENEMYDEATHSOUND:
-		mEnemyDeathSound.play();
-		break;
-	case WEAPONUPSOUND:
-		mWeaponUpSound.play();
-		break;
-	case PICKUPSOUND:
-		mPickupSound.play();
-		break;
-	}
+	mSounds[sound].first.play();
 }
 
 void SoundManager::ChangeMusic(MusicType newMusic)
@@ -64,20 +53,7 @@ void SoundManager::ChangeMusic(MusicType newMusic)
 		mCurrentMusic->stop();
 	}
 
-	switch (newMusic)
-	{
-	case STAGE1:
-		mCurrentMusic = &mStage1;
-		break;
-
-	case STAGE1BOSS:
-		mCurrentMusic = &mStage1Boss;
-		break;
-
-	case STAGE2BOSS:
-		mCurrentMusic = &mStage2Boss;
-		break;
-	}
+	mCurrentMusic = &mMusics[newMusic];
 
 	mCurrentMusic->play();
 }
