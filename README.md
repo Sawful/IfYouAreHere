@@ -1,6 +1,6 @@
 # If you are here
 
-![IfYouAreHereMainMenu](https://ibb.co/0R3q1HjJ)
+![IfYouAreHereMainMenu](https://i.ibb.co/1txZBFf2/If-You-Are-Here-Main-Menu.png)
 
 ## 🎮 Project Overview
 This is a 2-week long school project where we developed a shoot 'em up game using [SFML](https://www.sfml-dev.org/). It served as the final project for our first semester of our first year in [G.Tech](https://gamingcampus.fr/ecoles/ecole-developpeur-jeux-video-g-tech.html).
@@ -8,7 +8,7 @@ The gimmick of our game, *If you are here*, is that you control **two** characte
 
 
 
-![Gameplay image](https://ibb.co/9HqPkF0M)
+![Gameplay image](https://i.ibb.co/jkLtPcYp/image.png)
 
 ## 🚀 Features
 - Multiple enemy types
