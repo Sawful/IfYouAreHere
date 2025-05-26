@@ -1,6 +1,6 @@
 #pragma once
 #include "Character.h"
-#include "Level.h"
+#include "Stage.h"
 #include "Path.h"
 #include "SoundManager.h"
 
@@ -14,7 +14,7 @@ protected:
 	sf::Vector2f mDirection;
 	sf::Texture* mDropTexture;
 	int mDropAmount; // In percent --> 45 means 45%
-	Level* mCurrentStage;
+	Stage* mCurrentStage;
 	int scoreValue;
 	GameManager* mGameManager;
 	SoundManager* mSoundManager;

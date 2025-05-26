@@ -3,7 +3,7 @@
 #include "ExtraBoss.h"
 #include "Drop.h"
 
-ExtraStage::ExtraStage(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm) : Level(window, playerController, gm)
+ExtraStage::ExtraStage(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm) : Stage(window, playerController, gm)
 {
 	mBossTexture.loadFromFile("..\\..\\..\\res\\parhelions.png");
 
@@ -83,7 +83,7 @@ void ExtraStage::Update(float deltaTime)
 		}
 	}
 
-	Level::Update(deltaTime);
+	Stage::Update(deltaTime);
 
 	//VVV Background looping VVV
 	//When a Background's y reaches 0, it means the other one is out of the view
@@ -98,7 +98,7 @@ void ExtraStage::Update(float deltaTime)
 		mBackground2.setPosition(mBackground1.getPosition() + sf::Vector2f(0, -2400));
 	}
 
-	PlayLevel(deltaTime);
+	PlayStage(deltaTime);
 }
 
 void ExtraStage::SpawnWave(int wave)
@@ -140,9 +140,9 @@ void ExtraStage::AddToEntities(Entity* entity)
 }
 
 
-void ExtraStage::PlayLevel(float deltaTime)
+void ExtraStage::PlayStage(float deltaTime)
 {
-	Level::PlayLevel(deltaTime);
+	Stage::PlayStage(deltaTime);
 
 }
 
@@ -153,13 +153,13 @@ void ExtraStage::ResetScene()
 	mGameView.setCenter(sf::Vector2f(400.0f, 400.0f));
 	mIsShaking = false;
 	mIsUnzooming = false;
-	Level::ResetScene();
+	Stage::ResetScene();
 }
 
 void ExtraStage::Draw()
 {
 	// Draw Scoring
-	Level::Draw();
+	Stage::Draw();
 
 	// Draw Background
 	mCurrentWindow->draw(mBackground1);

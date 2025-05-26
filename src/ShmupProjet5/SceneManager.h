@@ -13,24 +13,23 @@ enum sceneState
 class SceneManager
 {
 	sf::RenderWindow* mainWindow;
+	GameManager* mGameManager;
+	PlayerController* mPlayerController;
 
 	sf::RectangleShape* mSceneSwapOverlay;
 	float mOverlayAlpha;
 	float mExitTime;
 	Scene* mNextScene;
-	Level* mNextLevel;
+	Stage* mNextLevel;
 
-	std::vector<Level*> stages;
+	std::vector<Stage*> stages;
 	ExtraStage* mExtraStage;
 	
 	Menu mMainMenu;
 	LeaderboardMenu leaderboardMenu;
 
 	Scene* mCurrentScene;
-	Level* mCurrentStage;
-
-	GameManager* mGameManager;
-	PlayerController* mPlayerController;
+	Stage* mCurrentStage;
 
 	void Initialize();
 	void Update();
@@ -40,17 +39,17 @@ public:
 	SceneManager(sf::RenderWindow* window, GameManager* gm);
 
 	PlayerController* GetPlayerController();
-	void AddLevel(Level* newStage);
-	void ChangeScene(Level* newStage);
+	void AddLevel(Stage* newStage);
+	void ChangeScene(Stage* newStage);
 	void ChangeScene(Scene* newScene);
 	void ChangeToStage(int stage);
 	void ChangeToMainMenu();
 	void ChangeToLeaderboard();
-	void SetNextScene(Level* nextScene);
+	void SetNextScene(Stage* nextScene);
 	void SetNextScene(Scene* nextScene);
 	Scene* GetCurrentScene();
-	Level* GetCurrentStage();
-	std::vector<Level*> GetStages();
+	Stage* GetCurrentStage();
+	std::vector<Stage*> GetStages();
 	void UpdateSceneTransition(float dt);
 	sf::RectangleShape* GetSceneOverlay();
 	void ShakeExtraStage(float duration);

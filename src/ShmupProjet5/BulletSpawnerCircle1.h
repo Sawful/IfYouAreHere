@@ -10,7 +10,7 @@ class BulletSpawnerCircle1 : public BulletSpawner
 	Enemy* mOwner;
 
 public:
-	BulletSpawnerCircle1(Enemy* owner, Level* currentStage);
+	BulletSpawnerCircle1(Enemy* owner, Stage* currentStage);
 
 	void SpawnBullet();
 

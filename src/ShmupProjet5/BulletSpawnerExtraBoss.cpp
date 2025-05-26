@@ -8,7 +8,7 @@
 #include <math.h>
 #include <numbers>
 
-BulletSpawnerExtraBoss1::BulletSpawnerExtraBoss1(ExtraBoss* owner, Level* currentStage)
+BulletSpawnerExtraBoss1::BulletSpawnerExtraBoss1(ExtraBoss* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -74,7 +74,7 @@ void BulletSpawnerExtraBoss1::Reset()
 	mAttackTime = mAttackCooldown;
 }
 
-BulletSpawnerExtraBoss2::BulletSpawnerExtraBoss2(ExtraBoss* owner, Level* currentStage)
+BulletSpawnerExtraBoss2::BulletSpawnerExtraBoss2(ExtraBoss* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -177,7 +177,7 @@ void BulletSpawnerExtraBoss2::EndAttack()
 	Reset();
 }
 
-BulletSpawnerExtraBoss3::BulletSpawnerExtraBoss3(ExtraBoss* owner, Level* currentStage)
+BulletSpawnerExtraBoss3::BulletSpawnerExtraBoss3(ExtraBoss* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -262,7 +262,7 @@ void BulletSpawnerExtraBoss3::Reset()
 	mAttackTime = mAttackCooldown;
 }
 
-BulletSpawnerExtraBoss4::BulletSpawnerExtraBoss4(ExtraBoss* owner, Level* currentStage)
+BulletSpawnerExtraBoss4::BulletSpawnerExtraBoss4(ExtraBoss* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -350,7 +350,7 @@ void BulletSpawnerExtraBoss4::Reset()
 }
 
 
-BulletSpawnerExtraBossPhase1Perma::BulletSpawnerExtraBossPhase1Perma(Enemy* owner, Level* currentStage)
+BulletSpawnerExtraBossPhase1Perma::BulletSpawnerExtraBossPhase1Perma(Enemy* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -373,7 +373,7 @@ void BulletSpawnerExtraBossPhase1Perma::Update(float dt)
 {
 }
 
-BulletSpawnerExtraBoss5::BulletSpawnerExtraBoss5(Enemy* owner, Level* currentStage)
+BulletSpawnerExtraBoss5::BulletSpawnerExtraBoss5(Enemy* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 

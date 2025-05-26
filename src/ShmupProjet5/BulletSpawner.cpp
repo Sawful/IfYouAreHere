@@ -27,7 +27,7 @@ BulletSpawner::BulletSpawner()
 	
 }
 
-void BulletSpawner::SetCurrentStage(Level* currentStage)
+void BulletSpawner::SetCurrentStage(Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 }

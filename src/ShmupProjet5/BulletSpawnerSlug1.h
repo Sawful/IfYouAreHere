@@ -12,7 +12,7 @@ class BulletSpawnerSlug1 : public BulletSpawner
 	PlayerController* mPlayerController;
 
 public:
-	BulletSpawnerSlug1(Enemy* owner, Level* currentStage);
+	BulletSpawnerSlug1(Enemy* owner, Stage* currentStage);
 
 	void SpawnBullet(sf::Vector2f targetPosition);
 

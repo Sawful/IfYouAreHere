@@ -6,7 +6,7 @@
 #include "Boss1.h"
 
 
-Stage1::Stage1(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm) : Level(window, playerController, gm)
+Stage1::Stage1(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm) : Stage(window, playerController, gm)
 {
 	mShotSlugTexture.loadFromFile("..\\..\\..\\res\\enemy_critter1_st.png");
 	mCircleGuyTexture.loadFromFile("..\\..\\..\\res\\enemy_circle_all.png");
@@ -26,7 +26,7 @@ Stage1::Stage1(sf::RenderWindow* window, PlayerController* playerController, Gam
 
 void Stage1::Update(float deltaTime)
 {
-	Level::Update(deltaTime);
+	Stage::Update(deltaTime);
 
 	//VVV Background looping VVV
 	//When a Background's y reaches 0, it means the other one is out of the view
@@ -41,7 +41,7 @@ void Stage1::Update(float deltaTime)
 		mBackground2.setPosition(mBackground1.getPosition() + sf::Vector2f(0, -1600));
 	}
 
-	PlayLevel(deltaTime);
+	PlayStage(deltaTime);
 }
 
 void Stage1::SpawnWave(int wave)
@@ -254,7 +254,7 @@ void Stage1::SpawnWave(int wave)
 
 }
 
-void Stage1::PlayLevel(float deltaTime)
+void Stage1::PlayStage(float deltaTime)
 {
 	mTimeUntilNextWave -= deltaTime;
 
@@ -264,18 +264,18 @@ void Stage1::PlayLevel(float deltaTime)
 		mWave++;
 	}
 
-	Level::PlayLevel(deltaTime);
+	Stage::PlayStage(deltaTime);
 }
 
 void Stage1::ResetScene()
 {
-	Level::ResetScene();
+	Stage::ResetScene();
 	mWave = 1;
 }
 
 void Stage1::Draw()
 {
-	Level::Draw();
+	Stage::Draw();
 
 	mCurrentWindow->draw(mBackground1);
 	mCurrentWindow->draw(mBackground2);

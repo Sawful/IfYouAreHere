@@ -12,7 +12,7 @@ class BulletSpawnerExtraBossPhase1Perma : public BulletSpawner
 	Enemy* mOwner;
 
 public:
-	BulletSpawnerExtraBossPhase1Perma(Enemy* owner, Level* currentStage);
+	BulletSpawnerExtraBossPhase1Perma(Enemy* owner, Stage* currentStage);
 
 	void SpawnBullet();
 
@@ -37,7 +37,7 @@ class BulletSpawnerExtraBoss1 : public BulletSpawner
 	ExtraBoss* mOwner;
 
 public:
-	BulletSpawnerExtraBoss1(ExtraBoss* owner, Level* currentStage);
+	BulletSpawnerExtraBoss1(ExtraBoss* owner, Stage* currentStage);
 
 	void SpawnBullet();
 
@@ -71,7 +71,7 @@ class BulletSpawnerExtraBoss2 : public BulletSpawner
 	PlayerController* mPlayerController;
 
 public:
-	BulletSpawnerExtraBoss2(ExtraBoss* owner, Level* currentStage);
+	BulletSpawnerExtraBoss2(ExtraBoss* owner, Stage* currentStage);
 
 	void SpawnBullet();
 
@@ -104,7 +104,7 @@ class BulletSpawnerExtraBoss3 : public BulletSpawner
 	sf::RenderWindow* mWindow;
 
 public:
-	BulletSpawnerExtraBoss3(ExtraBoss* owner, Level* currentStage);
+	BulletSpawnerExtraBoss3(ExtraBoss* owner, Stage* currentStage);
 
 	void SpawnBullet();
 
@@ -135,7 +135,7 @@ class BulletSpawnerExtraBoss4 : public BulletSpawner
 	sf::RenderWindow* mWindow;
 
 public:
-	BulletSpawnerExtraBoss4(ExtraBoss* owner, Level* currentStage);
+	BulletSpawnerExtraBoss4(ExtraBoss* owner, Stage* currentStage);
 
 	void SpawnBullet();
 
@@ -159,7 +159,7 @@ class BulletSpawnerExtraBoss5 : public BulletSpawner
 	Enemy* mOwner;
 
 public:
-	BulletSpawnerExtraBoss5(Enemy* owner, Level* currentStage);
+	BulletSpawnerExtraBoss5(Enemy* owner, Stage* currentStage);
 
 	void SpawnBullet();
 

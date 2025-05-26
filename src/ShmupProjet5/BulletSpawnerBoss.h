@@ -15,7 +15,7 @@ class BulletSpawnerBoss11Main : public BulletSpawner
 	PlayerController* mPlayerController;
 
 public:
-	BulletSpawnerBoss11Main(Enemy* owner, Level* currentStage);
+	BulletSpawnerBoss11Main(Enemy* owner, Stage* currentStage);
 
 	void SpawnBullet();
 
@@ -60,7 +60,7 @@ class BulletSpawnerBoss12 : public BulletSpawner
 	PlayerController* mPlayerController;
 
 public:
-	BulletSpawnerBoss12(Enemy* owner, Level* currentStage);
+	BulletSpawnerBoss12(Enemy* owner, Stage* currentStage);
 
 	void SpawnBullet();
 
@@ -83,7 +83,7 @@ class BulletSpawnerBoss13 : public BulletSpawner
 	PlayerController* mPlayerController;
 
 public:
-	BulletSpawnerBoss13(Enemy* owner, Level* currentStage);
+	BulletSpawnerBoss13(Enemy* owner, Stage* currentStage);
 
 	void SpawnBullet();
 

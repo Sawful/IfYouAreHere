@@ -83,7 +83,7 @@ void BulletSpawnerBoss14::Update(float dt)
 	}
 }
 
-BulletSpawnerBoss12::BulletSpawnerBoss12(Enemy* owner, Level* currentStage)
+BulletSpawnerBoss12::BulletSpawnerBoss12(Enemy* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 	mPlayerController = mCurrentStage->GetPlayerController();
@@ -186,7 +186,7 @@ void BulletSpawnerBoss12::Update(float dt)
 	}
 }
 
-BulletSpawnerBoss11Main::BulletSpawnerBoss11Main(Enemy* owner, Level* currentStage)
+BulletSpawnerBoss11Main::BulletSpawnerBoss11Main(Enemy* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -286,7 +286,7 @@ void BulletSpawnerBoss11Sub::Update(float dt)
 	}
 }
 
-BulletSpawnerBoss13::BulletSpawnerBoss13(Enemy* owner, Level* currentStage)
+BulletSpawnerBoss13::BulletSpawnerBoss13(Enemy* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 	mPlayerController = mCurrentStage->GetPlayerController();

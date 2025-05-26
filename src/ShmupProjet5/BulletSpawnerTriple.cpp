@@ -4,7 +4,7 @@
 #include "PlayerController.h"
 
 
-BulletSpawnerTriple::BulletSpawnerTriple(Enemy* owner, Level* currentStage)
+BulletSpawnerTriple::BulletSpawnerTriple(Enemy* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 

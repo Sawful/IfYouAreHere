@@ -1,10 +1,10 @@
 #pragma once
-#include "Level.h"
+#include "Stage.h"
 #include "EnemyTest.h"
 #include "Path.h"
 
 
-class ExtraStage : public Level
+class ExtraStage : public Stage
 {
 	sf::Texture mBossTexture;
 
@@ -36,7 +36,7 @@ public:
 	virtual void AddToEntities(Drop* entity);
 
 	virtual void AddToEntities(Entity* entity);
-	virtual void PlayLevel(float deltaTime) override;
+	virtual void PlayStage(float deltaTime) override;
 	virtual void ResetScene() override;
 	virtual void Draw() override;
 	virtual void EnterScene();

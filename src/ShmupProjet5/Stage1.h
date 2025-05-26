@@ -1,10 +1,10 @@
 #pragma once
-#include "Level.h"
+#include "Stage.h"
 #include "EnemyTest.h"
 #include "Path.h"
 
 
-class Stage1: public Level
+class Stage1: public Stage
 {
 	sf::Texture mShotSlugTexture;
 	sf::Texture mCircleGuyTexture;
@@ -25,7 +25,7 @@ public:
 
 	void SpawnWave(int wave);
 
-	virtual void PlayLevel(float deltaTime) override;
+	virtual void PlayStage(float deltaTime) override;
 	virtual void ResetScene() override;
 
 	virtual void Draw() override; 

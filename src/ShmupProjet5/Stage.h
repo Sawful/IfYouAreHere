@@ -7,7 +7,7 @@ class Enemy;
 class Drop;
 class GameManager;
 
-class Level: public Scene
+class Stage: public Scene
 {
 protected:
 	sf::Clock mStageTimer;
@@ -37,7 +37,7 @@ protected:
 	sf::Texture mDropTexture;
 
 public:
-	Level(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm);
+	Stage(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm);
 
 	virtual void AddToEntities(Bullet* entity);
 	virtual void AddToEntities(Enemy* entity);
@@ -52,7 +52,7 @@ public:
 
 	virtual void Update(float deltaTime) override;
 	
-	virtual void PlayLevel(float deltaTime);
+	virtual void PlayStage(float deltaTime);
 	PlayerController* GetPlayerController();
 	virtual void EnterScene() = 0;
 };

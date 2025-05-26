@@ -10,7 +10,13 @@ SceneManager::SceneManager(sf::RenderWindow* window, GameManager* gm): mMainMenu
 
 void SceneManager::Initialize()
 {
+#if defined(_DEBUG)
+	Stage* Stage2 = new Stage(mainWindow, mPlayerController, mGameManager);
+	ChangeScene(Stage2);
+#else
 	ChangeScene(&mMainMenu);
+#endif
+	
 	mMainMenu.Initialize();
 	leaderboardMenu.Initialize();
 
@@ -24,8 +30,6 @@ void SceneManager::Initialize()
 	mSceneSwapOverlay->setFillColor(sf::Color(0, 0, 0, 0));
 
 	AddLevel(new Stage1(mainWindow, mPlayerController, mGameManager));
-
-
 
 	mExtraStage = new ExtraStage(mainWindow, mPlayerController, mGameManager);
 
@@ -51,12 +55,12 @@ PlayerController* SceneManager::GetPlayerController()
 	return mPlayerController;
 }
 
-void SceneManager::AddLevel(Level* newStage)
+void SceneManager::AddLevel(Stage* newStage)
 {
 	stages.push_back(newStage);
 }
 
-void SceneManager::ChangeScene(Level* newStage)
+void SceneManager::ChangeScene(Stage* newStage)
 {
 	mCurrentScene->ResetScene();
 
@@ -100,7 +104,7 @@ void SceneManager::ChangeToLeaderboard()
 	//ChangeScene(&leaderboardMenu);
 }
 
-void SceneManager::SetNextScene(Level* nextScene)
+void SceneManager::SetNextScene(Stage* nextScene)
 {
 	if (mNextScene != nullptr)
 	{
@@ -131,12 +135,12 @@ Scene* SceneManager::GetCurrentScene()
 	return mCurrentScene;
 }
 
-Level* SceneManager::GetCurrentStage()
+Stage* SceneManager::GetCurrentStage()
 {
 	return mCurrentStage;
 }
 
-std::vector<Level*> SceneManager::GetStages()
+std::vector<Stage*> SceneManager::GetStages()
 {
 	return stages;
 }

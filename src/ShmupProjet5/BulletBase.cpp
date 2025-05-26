@@ -1,7 +1,7 @@
 #include "BulletBase.h"
 #include "Character.h"
 #include <iostream>
-#include "Level.h"
+#include "Stage.h"
 
 
 std::vector<BulletBase*> BulletBase::mInactiveBullets = std::vector<BulletBase*>();
@@ -55,7 +55,7 @@ void BulletBase::RemoveBullet()
 	mInactiveBullets.push_back(this);
 }
 
-BulletBase* BulletBase::InstantiateBullet(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, TextureName texture, Tag bulletTag, Level* currentStage)
+BulletBase* BulletBase::InstantiateBullet(int damage, float speed, sf::Vector2f direction, sf::Vector2f position, float rotation, TextureName texture, Tag bulletTag, Stage* currentStage)
 {
 	BulletBase* newBullet;
 	if (mInactiveBullets.size() > 0)

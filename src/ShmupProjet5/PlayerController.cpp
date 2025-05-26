@@ -1,6 +1,6 @@
 #include "PlayerController.h"
 #include "GameManager.h"
-#include "Level.h"
+#include "Stage.h"
 #include "SceneManager.h"
 #include "SoundManager.h"
 #include "ResourceManager.h"
@@ -114,7 +114,7 @@ std::vector<Player*> PlayerController::GetPlayers()
 
 void PlayerController::ChangeStage()
 {
-    Level* newStage = mGameManager->GetSceneManager()->GetCurrentStage();
+    Stage* newStage = mGameManager->GetSceneManager()->GetCurrentStage();
 
     mPlayerWeapon1Light->SetCurrentStage(newStage);
     mPlayerWeapon2Light->SetCurrentStage(newStage);

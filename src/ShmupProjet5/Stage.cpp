@@ -1,4 +1,4 @@
-#include "Level.h"
+#include "Stage.h"
 #include "Bullet.h"
 #include "GameManager.h"
 #include "Enemy.h"
@@ -7,7 +7,7 @@
 #include "Drop.h"
 
 
-Level::Level(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm): Scene(window)
+Stage::Stage(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm): Scene(window)
 {
 	mGameManager = gm;
 	mPlayerController = playerController;
@@ -47,7 +47,7 @@ Level::Level(sf::RenderWindow* window, PlayerController* playerController, GameM
 	mDropTexture.loadFromFile("..\\..\\..\\res\\powerbox.png");
 }
 
-void Level::AddToEntities(Bullet* entity)
+void Stage::AddToEntities(Bullet* entity)
 {
 	entity->SetGameRectBig(false);
 
@@ -63,29 +63,29 @@ void Level::AddToEntities(Bullet* entity)
 	}
 }
 
-void Level::AddToEntities(Enemy* entity)
+void Stage::AddToEntities(Enemy* entity)
 {
 	entities.push_back(entity);
 	mEnemies.push_back(entity);
 }
 
-void Level::AddToEntities(Drop* entity)
+void Stage::AddToEntities(Drop* entity)
 {
 	entities.push_back(entity);
 	mEnemyDrops.push_back(entity);
 }
 
-void Level::AddToEntities(Entity* entity)
+void Stage::AddToEntities(Entity* entity)
 {
 	entities.push_back(entity);
 }
 
-void Level::ResetTimer()
+void Stage::ResetTimer()
 {
 	mStageTimer.restart();
 }
 
-void Level::ResetScene()
+void Stage::ResetScene()
 {
 	entities.clear();
 
@@ -95,7 +95,7 @@ void Level::ResetScene()
 	ResetTimer();
 }
 
-void Level::Draw()
+void Stage::Draw()
 {
 	mCurrentWindow->setView(mScoreView);
 
@@ -110,7 +110,7 @@ void Level::Draw()
 	Scene::Draw();
 }
 
-void Level::Update(float deltaTime)
+void Stage::Update(float deltaTime)
 {
 	numbLives = mPlayerController->GetLives();
 	lives.setTextureRect(sf::IntRect(0, 0, 32 * numbLives, 32));
@@ -121,7 +121,7 @@ void Level::Update(float deltaTime)
 	Scene::Update(deltaTime);
 }
 
-void Level::PlayLevel(float deltaTime)
+void Stage::PlayStage(float deltaTime)
 {
 	// Player collision with enemy bullets
 	Player* activePlayer = mPlayerController->GetActivePlayerPointer();
@@ -146,7 +146,7 @@ void Level::PlayLevel(float deltaTime)
 	}
 }
 
-PlayerController* Level::GetPlayerController()
+PlayerController* Stage::GetPlayerController()
 {
 	return mPlayerController;
 }

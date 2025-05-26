@@ -3,7 +3,7 @@
 #include "Enemy.h"
 #include "PlayerController.h"
 
-BulletSpawnerSlug1::BulletSpawnerSlug1(Enemy* owner, Level* currentStage)
+BulletSpawnerSlug1::BulletSpawnerSlug1(Enemy* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 	mPlayerController = mCurrentStage->GetPlayerController();

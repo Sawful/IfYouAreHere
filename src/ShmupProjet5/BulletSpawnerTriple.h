@@ -12,7 +12,7 @@ class BulletSpawnerTriple : public BulletSpawner
 	PlayerController* mPlayerController;
 
 public:
-	BulletSpawnerTriple(Enemy* owner, Level* currentStage);
+	BulletSpawnerTriple(Enemy* owner, Stage* currentStage);
 
 	void SpawnBullet(sf::Vector2f targetPosition);
 

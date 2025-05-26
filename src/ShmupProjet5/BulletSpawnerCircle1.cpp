@@ -5,7 +5,7 @@
 #include <numbers>
 
 
-BulletSpawnerCircle1::BulletSpawnerCircle1(Enemy* owner, Level* currentStage)
+BulletSpawnerCircle1::BulletSpawnerCircle1(Enemy* owner, Stage* currentStage)
 {
 	mCurrentStage = currentStage;
 
