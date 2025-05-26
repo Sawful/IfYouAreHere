@@ -30,6 +30,20 @@ void SceneManager::Initialize()
 	AddLevel(mStage2);
 }
 
+void SceneManager::Update()
+{
+	float dt = mGameManager->GetDeltaTime();
+
+	mCurrentScene->Update(dt);
+	UpdateSceneTransition(dt);
+}
+
+void SceneManager::Draw()
+{
+	mCurrentScene->Draw();
+	mainWindow->draw(*mSceneSwapOverlay);
+}
+
 PlayerController* SceneManager::GetPlayerController()
 {
 	return mPlayerController;
@@ -43,10 +57,10 @@ void SceneManager::AddLevel(Level* newStage)
 
 void SceneManager::ChangeScene(Level* newStage)
 {
-	currentScene->ResetScene();
+	mCurrentScene->ResetScene();
 
-	currentScene = newStage;
-	currentStage = newStage;
+	mCurrentScene = newStage;
+	mCurrentStage = newStage;
 
 	newStage->EnterScene();
 
@@ -55,13 +69,13 @@ void SceneManager::ChangeScene(Level* newStage)
 
 void SceneManager::ChangeScene(Scene* newScene)
 {
-	if (currentScene != nullptr)
+	if (mCurrentScene != nullptr)
 	{
-		currentScene->ResetScene();
+		mCurrentScene->ResetScene();
 	}
 
-	currentScene = newScene;
-	currentStage = nullptr;
+	mCurrentScene = newScene;
+	mCurrentStage = nullptr;
 
 	newScene->EnterScene();
 }
@@ -113,12 +127,12 @@ void SceneManager::SetNextScene(Scene* nextScene)
 
 Scene* SceneManager::GetCurrentScene()
 {
-	return currentScene;
+	return mCurrentScene;
 }
 
 Level* SceneManager::GetCurrentStage()
 {
-	return currentStage;
+	return mCurrentStage;
 }
 
 std::vector<Level*> SceneManager::GetStages()

@@ -26,16 +26,18 @@ class SceneManager
 	Menu mMainMenu;
 	LeaderboardMenu leaderboardMenu;
 
-	Scene* currentScene;
-	Level* currentStage;
+	Scene* mCurrentScene;
+	Level* mCurrentStage;
 
 	GameManager* mGameManager;
 	PlayerController* mPlayerController;
 
+	void Initialize();
+	void Update();
+	void Draw();
+
 public:
 	SceneManager(sf::RenderWindow* window, GameManager* gm);
-
-	void Initialize();
 
 	PlayerController* GetPlayerController();
 	void AddLevel(Level* newStage);
@@ -53,5 +55,7 @@ public:
 	sf::RectangleShape* GetSceneOverlay();
 	void ShakeStage2(float duration);
 	void UnzoomStage2();
+
+	friend class GameManager;
 };
 
