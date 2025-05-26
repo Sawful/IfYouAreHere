@@ -2,24 +2,24 @@
 #include "BulletSpawner.h"
 
 class Enemy;
-class Boss2;
+class ExtraBoss;
 class PlayerController;
 
-class BulletSpawnerBoss2Phase1Perma : public BulletSpawner
+class BulletSpawnerExtraBossPhase1Perma : public BulletSpawner
 {
 	float mRotation;
 
 	Enemy* mOwner;
 
 public:
-	BulletSpawnerBoss2Phase1Perma(Enemy* owner, Level* currentStage);
+	BulletSpawnerExtraBossPhase1Perma(Enemy* owner, Level* currentStage);
 
 	void SpawnBullet();
 
 	virtual void Update(float dt);
 };
 
-class BulletSpawnerBoss21 : public BulletSpawner
+class BulletSpawnerExtraBoss1 : public BulletSpawner
 {
 	float mAttackTime = 4.0f;
 	float mAttackCooldown = 2.0f;
@@ -34,10 +34,10 @@ class BulletSpawnerBoss21 : public BulletSpawner
 	float mShotTime = 0.0f;
 	float mShotCooldown = 0.125f;
 
-	Boss2* mOwner;
+	ExtraBoss* mOwner;
 
 public:
-	BulletSpawnerBoss21(Boss2* owner, Level* currentStage);
+	BulletSpawnerExtraBoss1(ExtraBoss* owner, Level* currentStage);
 
 	void SpawnBullet();
 
@@ -46,7 +46,7 @@ public:
 	virtual void Reset();
 };
 
-class BulletSpawnerBoss22 : public BulletSpawner
+class BulletSpawnerExtraBoss2 : public BulletSpawner
 {
 	float mAttackTime = 1.0f;
 	float mAttackCooldown = 1.0f;
@@ -65,13 +65,13 @@ class BulletSpawnerBoss22 : public BulletSpawner
 
 	bool mHasAttacked;
 
-	Boss2* mOwner;
+	ExtraBoss* mOwner;
 
 	sf::RenderWindow* mWindow;
 	PlayerController* mPlayerController;
 
 public:
-	BulletSpawnerBoss22(Boss2* owner, Level* currentStage);
+	BulletSpawnerExtraBoss2(ExtraBoss* owner, Level* currentStage);
 
 	void SpawnBullet();
 
@@ -82,7 +82,7 @@ public:
 	virtual void EndAttack();
 };
 
-class BulletSpawnerBoss23 : public BulletSpawner
+class BulletSpawnerExtraBoss3 : public BulletSpawner
 {
 	float mAttackTime = 1.0f;
 	float mAttackCooldown = 1.0f;
@@ -99,12 +99,12 @@ class BulletSpawnerBoss23 : public BulletSpawner
 
 	bool mHasAttacked;
 
-	Boss2* mOwner;
+	ExtraBoss* mOwner;
 
 	sf::RenderWindow* mWindow;
 
 public:
-	BulletSpawnerBoss23(Boss2* owner, Level* currentStage);
+	BulletSpawnerExtraBoss3(ExtraBoss* owner, Level* currentStage);
 
 	void SpawnBullet();
 
@@ -113,7 +113,7 @@ public:
 	virtual void Reset();
 };
 
-class BulletSpawnerBoss24 : public BulletSpawner
+class BulletSpawnerExtraBoss4 : public BulletSpawner
 {
 	float mAttackTime = 1.0f;
 	float mAttackCooldown = 1.0f;
@@ -130,12 +130,12 @@ class BulletSpawnerBoss24 : public BulletSpawner
 
 	bool mHasAttacked;
 
-	Boss2* mOwner;
+	ExtraBoss* mOwner;
 
 	sf::RenderWindow* mWindow;
 
 public:
-	BulletSpawnerBoss24(Boss2* owner, Level* currentStage);
+	BulletSpawnerExtraBoss4(ExtraBoss* owner, Level* currentStage);
 
 	void SpawnBullet();
 
@@ -144,7 +144,7 @@ public:
 	virtual void Reset();
 };
 
-class BulletSpawnerBoss25 : public BulletSpawner
+class BulletSpawnerExtraBoss5 : public BulletSpawner
 {
 	float mShotTime = 0.1f;
 	float mShotCooldown = 0.1f;
@@ -159,7 +159,7 @@ class BulletSpawnerBoss25 : public BulletSpawner
 	Enemy* mOwner;
 
 public:
-	BulletSpawnerBoss25(Enemy* owner, Level* currentStage);
+	BulletSpawnerExtraBoss5(Enemy* owner, Level* currentStage);
 
 	void SpawnBullet();
 

@@ -105,8 +105,6 @@ void Level::Draw()
 
 	mCurrentWindow->draw(lives);
 
-	mCurrentWindow->draw(*mSceneSwapOverlay);
-
 	mCurrentWindow->setView(mGameView);
 
 	Scene::Draw();
@@ -151,9 +149,4 @@ void Level::PlayLevel(float deltaTime)
 PlayerController* Level::GetPlayerController()
 {
 	return mPlayerController;
-}
-
-void Level::SetOverlay(sf::RectangleShape* overlay)
-{
-	mSceneSwapOverlay = overlay;
 }

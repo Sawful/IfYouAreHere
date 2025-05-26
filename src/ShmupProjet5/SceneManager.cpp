@@ -1,6 +1,6 @@
 #include "SceneManager.h"
 #include "Stage1.h"
-#include "Stage2.h"
+#include "ExtraStage.h"
 
 SceneManager::SceneManager(sf::RenderWindow* window, GameManager* gm): mMainMenu(window, this), leaderboardMenu(window)
 {
@@ -25,9 +25,11 @@ void SceneManager::Initialize()
 
 	AddLevel(new Stage1(mainWindow, mPlayerController, mGameManager));
 
-	mStage2 = new Stage2(mainWindow, mPlayerController, mGameManager);
 
-	AddLevel(mStage2);
+
+	mExtraStage = new ExtraStage(mainWindow, mPlayerController, mGameManager);
+
+	AddLevel(mExtraStage);
 }
 
 void SceneManager::Update()
@@ -51,7 +53,6 @@ PlayerController* SceneManager::GetPlayerController()
 
 void SceneManager::AddLevel(Level* newStage)
 {
-	newStage->SetOverlay(mSceneSwapOverlay);
 	stages.push_back(newStage);
 }
 
@@ -179,12 +180,12 @@ sf::RectangleShape* SceneManager::GetSceneOverlay()
 	return mSceneSwapOverlay;
 }
 
-void SceneManager::ShakeStage2(float duration)
+void SceneManager::ShakeExtraStage(float duration)
 {
-	mStage2->SetShake(duration);
+	mExtraStage->SetShake(duration);
 }
 
-void SceneManager::UnzoomStage2()
+void SceneManager::UnzoomExtraStage()
 {
-	mStage2->SetBoss2Unzoom();
+	mExtraStage->SetExtraBossUnzoom();
 }

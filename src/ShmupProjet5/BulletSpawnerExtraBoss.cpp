@@ -1,14 +1,14 @@
-#include "BulletSpawnerBoss2.h"
+#include "BulletSpawnerExtraBoss.h"
 #include "BulletBase.h"
 #include "GameManager.h"
 #include "SceneManager.h"
 #include "PlayerController.h"
 #include "Enemy.h"
-#include "Boss2.h"
+#include "ExtraBoss.h"
 #include <math.h>
 #include <numbers>
 
-BulletSpawnerBoss21::BulletSpawnerBoss21(Boss2* owner, Level* currentStage)
+BulletSpawnerExtraBoss1::BulletSpawnerExtraBoss1(ExtraBoss* owner, Level* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -19,7 +19,7 @@ BulletSpawnerBoss21::BulletSpawnerBoss21(Boss2* owner, Level* currentStage)
 	mIsAttacking = false;
 }
 
-void BulletSpawnerBoss21::SpawnBullet()
+void BulletSpawnerExtraBoss1::SpawnBullet()
 {
 	if (mAttackDurationTimer < 0.5f)
 	{
@@ -32,7 +32,7 @@ void BulletSpawnerBoss21::SpawnBullet()
 	}
 }
 
-void BulletSpawnerBoss21::Update(float dt)
+void BulletSpawnerExtraBoss1::Update(float dt)
 {
 	mShotTime -= dt;
 	mAttackTime -= dt;
@@ -67,14 +67,14 @@ void BulletSpawnerBoss21::Update(float dt)
 	}
 }
 
-void BulletSpawnerBoss21::Reset()
+void BulletSpawnerExtraBoss1::Reset()
 {
 	mAttackNumber = -1;
 	mIsAttacking = false;
 	mAttackTime = mAttackCooldown;
 }
 
-BulletSpawnerBoss22::BulletSpawnerBoss22(Boss2* owner, Level* currentStage)
+BulletSpawnerExtraBoss2::BulletSpawnerExtraBoss2(ExtraBoss* owner, Level* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -88,9 +88,9 @@ BulletSpawnerBoss22::BulletSpawnerBoss22(Boss2* owner, Level* currentStage)
 	mHasAttacked = false;
 }
 
-void BulletSpawnerBoss22::SpawnBullet()
+void BulletSpawnerExtraBoss2::SpawnBullet()
 {
-	GameManager::GetInstance()->GetSceneManager()->ShakeStage2(1.5f);
+	GameManager::GetInstance()->GetSceneManager()->ShakeExtraStage(1.5f);
 
 	for (int i = 0; i < 24; i++)
 	{
@@ -101,7 +101,7 @@ void BulletSpawnerBoss22::SpawnBullet()
 	}
 }
 
-void BulletSpawnerBoss22::Update(float dt)
+void BulletSpawnerExtraBoss2::Update(float dt)
 {
 	mAttackTime -= dt;
 	mPreviewTime -= dt;
@@ -158,7 +158,7 @@ void BulletSpawnerBoss22::Update(float dt)
 	}
 }
 
-void BulletSpawnerBoss22::Reset()
+void BulletSpawnerExtraBoss2::Reset()
 {
 	mIsPreview = false;
 	mIsAttacking = false;
@@ -172,12 +172,12 @@ void BulletSpawnerBoss22::Reset()
 	RemoveBullets();
 }
 
-void BulletSpawnerBoss22::EndAttack()
+void BulletSpawnerExtraBoss2::EndAttack()
 {
 	Reset();
 }
 
-BulletSpawnerBoss23::BulletSpawnerBoss23(Boss2* owner, Level* currentStage)
+BulletSpawnerExtraBoss3::BulletSpawnerExtraBoss3(ExtraBoss* owner, Level* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -190,9 +190,9 @@ BulletSpawnerBoss23::BulletSpawnerBoss23(Boss2* owner, Level* currentStage)
 	mHasAttacked = false;
 }
 
-void BulletSpawnerBoss23::SpawnBullet()
+void BulletSpawnerExtraBoss3::SpawnBullet()
 {
-	GameManager::GetInstance()->GetSceneManager()->ShakeStage2(1.5f);
+	GameManager::GetInstance()->GetSceneManager()->ShakeExtraStage(1.5f);
 	for (int i = 0; i < 24; i++)
 	{
 		BulletBase* newBullet = new BulletBase(1, 0, sf::Vector2f(0, 1), sf::Vector2f(-200.0f + i * 50.0f, 800.0f), 0, BULLET_TEXTURE, ENEMYBULLET, true, 150.0f);
@@ -202,7 +202,7 @@ void BulletSpawnerBoss23::SpawnBullet()
 	}
 }
 
-void BulletSpawnerBoss23::Update(float dt)
+void BulletSpawnerExtraBoss3::Update(float dt)
 {
 	mAttackTime -= dt;
 	mPreviewTime -= dt;
@@ -250,7 +250,7 @@ void BulletSpawnerBoss23::Update(float dt)
 	}
 }
 
-void BulletSpawnerBoss23::Reset()
+void BulletSpawnerExtraBoss3::Reset()
 {
 	mIsPreview = false;
 	mIsAttacking = false;
@@ -262,7 +262,7 @@ void BulletSpawnerBoss23::Reset()
 	mAttackTime = mAttackCooldown;
 }
 
-BulletSpawnerBoss24::BulletSpawnerBoss24(Boss2* owner, Level* currentStage)
+BulletSpawnerExtraBoss4::BulletSpawnerExtraBoss4(ExtraBoss* owner, Level* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -275,9 +275,9 @@ BulletSpawnerBoss24::BulletSpawnerBoss24(Boss2* owner, Level* currentStage)
 	mHasAttacked = false;
 }
 
-void BulletSpawnerBoss24::SpawnBullet()
+void BulletSpawnerExtraBoss4::SpawnBullet()
 {
-	GameManager::GetInstance()->GetSceneManager()->ShakeStage2(1.5f);
+	GameManager::GetInstance()->GetSceneManager()->ShakeExtraStage(1.5f);
 
 	for (int i = 0; i < 24; i++)
 	{
@@ -288,7 +288,7 @@ void BulletSpawnerBoss24::SpawnBullet()
 	}
 }
 
-void BulletSpawnerBoss24::Update(float dt)
+void BulletSpawnerExtraBoss4::Update(float dt)
 {
 	mAttackTime -= dt;
 	mPreviewTime -= dt;
@@ -337,7 +337,7 @@ void BulletSpawnerBoss24::Update(float dt)
 	}
 }
 
-void BulletSpawnerBoss24::Reset()
+void BulletSpawnerExtraBoss4::Reset()
 {
 	mIsPreview = false;
 	mIsAttacking = false;
@@ -350,7 +350,7 @@ void BulletSpawnerBoss24::Reset()
 }
 
 
-BulletSpawnerBoss2Phase1Perma::BulletSpawnerBoss2Phase1Perma(Enemy* owner, Level* currentStage)
+BulletSpawnerExtraBossPhase1Perma::BulletSpawnerExtraBossPhase1Perma(Enemy* owner, Level* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -359,7 +359,7 @@ BulletSpawnerBoss2Phase1Perma::BulletSpawnerBoss2Phase1Perma(Enemy* owner, Level
 	mRotation = 0;
 }
 
-void BulletSpawnerBoss2Phase1Perma::SpawnBullet()
+void BulletSpawnerExtraBossPhase1Perma::SpawnBullet()
 {
 	sf::Vector2f position = mOwner->getPosition();
 	mRotation += std::numbers::pi / 16;
@@ -369,11 +369,11 @@ void BulletSpawnerBoss2Phase1Perma::SpawnBullet()
 	}
 }
 
-void BulletSpawnerBoss2Phase1Perma::Update(float dt)
+void BulletSpawnerExtraBossPhase1Perma::Update(float dt)
 {
 }
 
-BulletSpawnerBoss25::BulletSpawnerBoss25(Enemy* owner, Level* currentStage)
+BulletSpawnerExtraBoss5::BulletSpawnerExtraBoss5(Enemy* owner, Level* currentStage)
 {
 	mCurrentStage = currentStage;
 
@@ -382,7 +382,7 @@ BulletSpawnerBoss25::BulletSpawnerBoss25(Enemy* owner, Level* currentStage)
 	mRotation = 0;
 }
 
-void BulletSpawnerBoss25::SpawnBullet()
+void BulletSpawnerExtraBoss5::SpawnBullet()
 {
 	sf::Vector2f position = mOwner->getPosition();
 
@@ -392,7 +392,7 @@ void BulletSpawnerBoss25::SpawnBullet()
 	}
 }
 
-void BulletSpawnerBoss25::Update(float dt)
+void BulletSpawnerExtraBoss5::Update(float dt)
 {
 	if (mRotating)
 	{

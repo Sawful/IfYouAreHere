@@ -4,7 +4,7 @@
 #include "Path.h"
 
 
-class Stage2 : public Level
+class ExtraStage : public Level
 {
 	sf::Texture mBossTexture;
 
@@ -28,7 +28,7 @@ class Stage2 : public Level
 	sf::Sprite mBackground2;
 
 public:
-	Stage2(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm);
+	ExtraStage(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm);
 	virtual void Update(float deltaTime) override;
 	void SpawnWave(int wave);
 	virtual void AddToEntities(Bullet* entity);
@@ -41,6 +41,6 @@ public:
 	virtual void Draw() override;
 	virtual void EnterScene();
 	void SetShake(float duration);
-	void SetBoss2Unzoom();
+	void SetExtraBossUnzoom();
 };
 

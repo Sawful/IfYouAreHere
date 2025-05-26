@@ -1,35 +1,35 @@
 #pragma once
 #include "Enemy.h"
 #include "BulletSpawner.h"
-#include "BulletSpawnerBoss2.h"
+#include "BulletSpawnerExtraBoss.h"
 
-enum Boss2States
+enum ExtraBossStates
 {
-	Waiting, // Waits like 5 seconds at the center of the screen (he's already there on Stage2 transition)
+	Waiting, // Waits like 5 seconds at the center of the screen (he's already there on ExtraStage transition)
 	Phase1,
 	Phase2 // Satori spin circle + screen shake and unzoom
 };
 
-struct Boss2Pattern
+struct ExtraBossPattern
 {
 	std::vector<Path*> patternPath;
 	std::vector <BulletSpawner*> patternSpawners;
 };
 
-class Boss2 : public Enemy
+class ExtraBoss : public Enemy
 {
 	int mPathNumber;
 
-	Boss2Pattern mPatternWaiting;
-	Boss2Pattern mPattern1;
-	Boss2Pattern mPattern2;
-	Boss2Pattern mPattern3;
-	Boss2Pattern mPattern4;
-	Boss2Pattern mPattern5;
+	ExtraBossPattern mPatternWaiting;
+	ExtraBossPattern mPattern1;
+	ExtraBossPattern mPattern2;
+	ExtraBossPattern mPattern3;
+	ExtraBossPattern mPattern4;
+	ExtraBossPattern mPattern5;
 
-	Boss2States mState;
+	ExtraBossStates mState;
 
-	BulletSpawnerBoss2Phase1Perma* mPermaSpawner;
+	BulletSpawnerExtraBossPhase1Perma* mPermaSpawner;
 	float mPermaShotTime = 25.94f;
 	float mPermaShotCooldown = 0.405405f;
 	float mPermaShotHighest = 0;
@@ -41,16 +41,16 @@ class Boss2 : public Enemy
 	float mFaceChangeTimeP2 = 0.0f;
 	float mFaceChangeCooldownP2 = 0.03f;
 
-	std::vector < Boss2Pattern*> mPhase1Patterns;
+	std::vector < ExtraBossPattern*> mPhase1Patterns;
 
 	sf::RectangleShape* mPreviewRectangle;
 	sf::Sprite* mLaser;
 	sf::Texture mLaserTexture;
 
-	Boss2Pattern* mCurrentPattern;
+	ExtraBossPattern* mCurrentPattern;
 
 public:
-	Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName texture);
+	ExtraBoss(sf::Vector2f position, float rotation, bool isActive, TextureName texture);
 
 	virtual void Update(float deltaTime);
 	virtual void Attack();

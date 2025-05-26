@@ -2,7 +2,7 @@
 #include "EnemyTest.h"
 #include "SceneManager.h"
 #include "Stage1.h"
-#include "Stage2.h"
+#include "ExtraStage.h"
 #include "GameManager.h"
 #include "SFML/Graphics.hpp"
 

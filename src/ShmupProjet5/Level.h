@@ -12,8 +12,6 @@ class Level: public Scene
 protected:
 	sf::Clock mStageTimer;
 
-	sf::RectangleShape* mSceneSwapOverlay;
-
 	sf::View mGameView;
 	sf::View mScoreView;
 
@@ -57,6 +55,5 @@ public:
 	virtual void PlayLevel(float deltaTime);
 	PlayerController* GetPlayerController();
 	virtual void EnterScene() = 0;
-	void SetOverlay(sf::RectangleShape* overlay);
 };
 

@@ -1,10 +1,10 @@
-#include "Boss2.h"
-#include "BulletSpawnerBoss2.h"
+#include "ExtraBoss.h"
+#include "BulletSpawnerExtraBoss.h"
 #include "GameManager.h"
 #include "SceneManager.h"
 #include "Path.h"
 
-Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName texture) :
+ExtraBoss::ExtraBoss(sf::Vector2f position, float rotation, bool isActive, TextureName texture) :
 	Enemy(position, rotation, 0, texture, isActive)
 {
 	mPermaClock = sf::Clock();
@@ -26,7 +26,7 @@ Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName t
 	mLaser->setScale(sf::Vector2f(12.0f, 3.0f));
 	mLaser->setOrigin(sf::Vector2f(0.0f, 50.0f));
 
-	mPermaSpawner = new BulletSpawnerBoss2Phase1Perma(this, mCurrentStage);
+	mPermaSpawner = new BulletSpawnerExtraBossPhase1Perma(this, mCurrentStage);
 
 	DisplayLaser(false);
 
@@ -52,27 +52,27 @@ Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName t
 
 	mPattern1.patternPath.push_back(new PointPath(sf::Vector2f(400.0f, 400.0f), 1.0f));
 
-	mPattern1.patternSpawners.push_back(new BulletSpawnerBoss21(this, mCurrentStage));
+	mPattern1.patternSpawners.push_back(new BulletSpawnerExtraBoss1(this, mCurrentStage));
 
 	mPattern2.patternPath.push_back(new PointPath(sf::Vector2f(400.0f, 400.0f), 5.0f));
 
-	mPattern2.patternSpawners.push_back(new BulletSpawnerBoss22(this, mCurrentStage));
+	mPattern2.patternSpawners.push_back(new BulletSpawnerExtraBoss2(this, mCurrentStage));
 
 	mPattern3.patternPath.push_back(new LinePath(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(0.0f, -150.0f), 0.5f));
 	mPattern3.patternPath.push_back(new PointPath(sf::Vector2f(400.0f, 250.0f), 3.0f));
 	mPattern3.patternPath.push_back(new LinePath(sf::Vector2f(400.0f, 250.0f), sf::Vector2f(0.0f, 150.0f), 0.5f));
 
-	mPattern3.patternSpawners.push_back(new BulletSpawnerBoss23(this, mCurrentStage));
+	mPattern3.patternSpawners.push_back(new BulletSpawnerExtraBoss3(this, mCurrentStage));
 
 	mPattern4.patternPath.push_back(new LinePath(sf::Vector2f(400.0f, 400.0f), sf::Vector2f(0.0f, 150.0f), 0.5f));
 	mPattern4.patternPath.push_back(new PointPath(sf::Vector2f(400.0f, 550.0f), 3.0f));
 	mPattern4.patternPath.push_back(new LinePath(sf::Vector2f(400.0f, 550.0f), sf::Vector2f(0.0f, -150.0f), 0.5f));
 
-	mPattern4.patternSpawners.push_back(new BulletSpawnerBoss24(this, mCurrentStage));
+	mPattern4.patternSpawners.push_back(new BulletSpawnerExtraBoss4(this, mCurrentStage));
 	mPattern4.patternSpawners.push_back(mPermaSpawner);
 
 	mPattern5.patternPath.push_back(new PointPath(sf::Vector2f(400.0f, 400.0f), 32.0f));
-	mPattern5.patternSpawners.push_back(new BulletSpawnerBoss25(this, mCurrentStage));
+	mPattern5.patternSpawners.push_back(new BulletSpawnerExtraBoss5(this, mCurrentStage));
 
 	mPhase1Patterns.push_back(&mPattern1);
 	mPhase1Patterns.push_back(&mPattern2);
@@ -88,7 +88,7 @@ Boss2::Boss2(sf::Vector2f position, float rotation, bool isActive, TextureName t
 
 }
 
-void Boss2::Update(float deltaTime)
+void ExtraBoss::Update(float deltaTime)
 {
 	for (int i = 0; i < mCurrentPattern->patternSpawners.size(); i++)
 	{
@@ -136,11 +136,11 @@ void Boss2::Update(float deltaTime)
 	Move(deltaTime);
 }
 
-void Boss2::Attack()
+void ExtraBoss::Attack()
 {
 }
 
-void Boss2::Move(float deltaTime)
+void ExtraBoss::Move(float deltaTime)
 {
 	if (mState == Waiting)
 	{
@@ -183,7 +183,7 @@ void Boss2::Move(float deltaTime)
 	}
 }
 
-void Boss2::draw(sf::RenderTarget& target, sf::RenderStates states) const
+void ExtraBoss::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	target.draw(*mPreviewRectangle);
 	target.draw(*mLaser);
@@ -191,7 +191,7 @@ void Boss2::draw(sf::RenderTarget& target, sf::RenderStates states) const
 	Entity::draw(target, states);
 }
 
-void Boss2::Die()
+void ExtraBoss::Die()
 {
 	SetEntityActive(false);
 
@@ -202,7 +202,7 @@ void Boss2::Die()
 	mGameManager->RaiseScore(scoreValue * 10);
 }
 
-void Boss2::TakeDamage(int damage)
+void ExtraBoss::TakeDamage(int damage)
 {
 	Enemy::TakeDamage(damage);
 
@@ -214,14 +214,12 @@ void Boss2::TakeDamage(int damage)
 		mState = Phase2;
 		mCurrentPattern = &mPattern5;
 
-		mGameManager->GetSceneManager()->ShakeStage2(10000);
-		mGameManager->GetSceneManager()->UnzoomStage2();
-
-		
+		mGameManager->GetSceneManager()->ShakeExtraStage(10000);
+		mGameManager->GetSceneManager()->UnzoomExtraStage();
 	}
 }
 
-void Boss2::SetPreviewRectangle(bool display, sf::Vector2f position, float rotation)
+void ExtraBoss::SetPreviewRectangle(bool display, sf::Vector2f position, float rotation)
 {
 	if (display)
 	{
@@ -236,7 +234,7 @@ void Boss2::SetPreviewRectangle(bool display, sf::Vector2f position, float rotat
 	mPreviewRectangle->setRotation(rotation);
 }
 
-void Boss2::SetPreviewRectangle(bool display)
+void ExtraBoss::SetPreviewRectangle(bool display)
 {
 	if (display)
 	{
@@ -249,7 +247,7 @@ void Boss2::SetPreviewRectangle(bool display)
 }
 
 
-void Boss2::DisplayLaser(bool display, sf::Vector2f position, float rotation)
+void ExtraBoss::DisplayLaser(bool display, sf::Vector2f position, float rotation)
 {
 	if (display)
 	{
@@ -264,7 +262,7 @@ void Boss2::DisplayLaser(bool display, sf::Vector2f position, float rotation)
 	mLaser->setRotation(rotation);
 }
 
-void Boss2::DisplayLaser(bool display)
+void ExtraBoss::DisplayLaser(bool display)
 {
 	if (display)
 	{

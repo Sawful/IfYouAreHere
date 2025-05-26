@@ -1,9 +1,9 @@
-#include "Stage2.h"
+#include "ExtraStage.h"
 #include "GameManager.h"
-#include "Boss2.h"
+#include "ExtraBoss.h"
 #include "Drop.h"
 
-Stage2::Stage2(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm) : Level(window, playerController, gm)
+ExtraStage::ExtraStage(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm) : Level(window, playerController, gm)
 {
 	mBossTexture.loadFromFile("..\\..\\..\\res\\parhelions.png");
 
@@ -25,7 +25,7 @@ Stage2::Stage2(sf::RenderWindow* window, PlayerController* playerController, Gam
 	mShakeVectors.push_back(new sf::Vector2f(-2, 2));
 }
 
-void Stage2::Update(float deltaTime)
+void ExtraStage::Update(float deltaTime)
 {
 	if (mIsUnzooming)
 	{
@@ -101,12 +101,12 @@ void Stage2::Update(float deltaTime)
 	PlayLevel(deltaTime);
 }
 
-void Stage2::SpawnWave(int wave)
+void ExtraStage::SpawnWave(int wave)
 {
 	
 }
 
-void Stage2::AddToEntities(Bullet* entity)
+void ExtraStage::AddToEntities(Bullet* entity)
 {
 	entity->SetGameRectBig(mIsUnzooming);
 
@@ -122,31 +122,31 @@ void Stage2::AddToEntities(Bullet* entity)
 	}
 }
 
-void Stage2::AddToEntities(Enemy* entity)
+void ExtraStage::AddToEntities(Enemy* entity)
 {
 	entities.push_back(entity);
 	mEnemies.push_back(entity);
 }
 
-void Stage2::AddToEntities(Drop* entity)
+void ExtraStage::AddToEntities(Drop* entity)
 {
 	entities.push_back(entity);
 	mEnemyDrops.push_back(entity);
 }
 
-void Stage2::AddToEntities(Entity* entity)
+void ExtraStage::AddToEntities(Entity* entity)
 {
 	entities.push_back(entity);
 }
 
 
-void Stage2::PlayLevel(float deltaTime)
+void ExtraStage::PlayLevel(float deltaTime)
 {
 	Level::PlayLevel(deltaTime);
 
 }
 
-void Stage2::ResetScene()
+void ExtraStage::ResetScene()
 {
 	mPlayerController->SetGameScreen(sf::FloatRect(24, 32, 752, 736));
 	mGameView.setSize(sf::Vector2f(800.0f, 800.0f));
@@ -156,7 +156,7 @@ void Stage2::ResetScene()
 	Level::ResetScene();
 }
 
-void Stage2::Draw()
+void ExtraStage::Draw()
 {
 	// Draw Scoring
 	Level::Draw();
@@ -177,7 +177,7 @@ void Stage2::Draw()
 	}
 }
 
-void Stage2::EnterScene()
+void ExtraStage::EnterScene()
 {
 	mGameManager->GetSoundManager()->ChangeMusic(STAGE2BOSS);
 
@@ -191,18 +191,18 @@ void Stage2::EnterScene()
 	mPlayerController->GetPlayers()[0]->setPosition(sf::Vector2f(400.0f, 700.0f));
 	mPlayerController->GetPlayers()[1]->setPosition(sf::Vector2f(400.0f, 100.0f));
 
-	AddToEntities(new Boss2(sf::Vector2f(400.0f, 400.0f), 0, true, PARHELION_TEXTURE));
+	AddToEntities(new ExtraBoss(sf::Vector2f(400.0f, 400.0f), 0, true, PARHELION_TEXTURE));
 
 	mStageTimer.restart();
 }
 
-void Stage2::SetShake(float duration)
+void ExtraStage::SetShake(float duration)
 {
 	mIsShaking = true;
 	mShakeDuration = duration;
 }
 
-void Stage2::SetBoss2Unzoom()
+void ExtraStage::SetExtraBossUnzoom()
 {
 	mIsUnzooming = true;
 }

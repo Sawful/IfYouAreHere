@@ -1,6 +1,6 @@
 #pragma once
 #include "Stage1.h"
-#include "Stage2.h"
+#include "ExtraStage.h"
 #include "Menu.h"
 #include "LeaderboardMenu.h"
 
@@ -21,7 +21,7 @@ class SceneManager
 	Level* mNextLevel;
 
 	std::vector<Level*> stages;
-	Stage2* mStage2;
+	ExtraStage* mExtraStage;
 	
 	Menu mMainMenu;
 	LeaderboardMenu leaderboardMenu;
@@ -53,8 +53,8 @@ public:
 	std::vector<Level*> GetStages();
 	void UpdateSceneTransition(float dt);
 	sf::RectangleShape* GetSceneOverlay();
-	void ShakeStage2(float duration);
-	void UnzoomStage2();
+	void ShakeExtraStage(float duration);
+	void UnzoomExtraStage();
 
 	friend class GameManager;
 };
