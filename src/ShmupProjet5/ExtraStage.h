@@ -30,13 +30,13 @@ class ExtraStage : public Stage
 public:
 	ExtraStage(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm);
 	virtual void Update(float deltaTime) override;
-	void SpawnWave(int wave);
+	void SpawnWave(int wave) {};
 	virtual void AddToEntities(Bullet* entity);
 	virtual void AddToEntities(Enemy* entity);
 	virtual void AddToEntities(Drop* entity);
 
 	virtual void AddToEntities(Entity* entity);
-	virtual void PlayStage(float deltaTime) override;
+	virtual void PlayStage(float deltaTime) override {};
 	virtual void ResetScene() override;
 	virtual void Draw() override;
 	virtual void EnterScene();

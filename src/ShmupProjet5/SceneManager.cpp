@@ -1,5 +1,6 @@
 #include "SceneManager.h"
 #include "Stage1.h"
+#include "Stage2.h"
 #include "ExtraStage.h"
 
 SceneManager::SceneManager(sf::RenderWindow* window, GameManager* gm): mMainMenu(window, this), leaderboardMenu(window)
@@ -10,13 +11,6 @@ SceneManager::SceneManager(sf::RenderWindow* window, GameManager* gm): mMainMenu
 
 void SceneManager::Initialize()
 {
-#if defined(_DEBUG)
-	Stage* Stage2 = new Stage(mainWindow, mPlayerController, mGameManager);
-	ChangeScene(Stage2);
-#else
-	ChangeScene(&mMainMenu);
-#endif
-	
 	mMainMenu.Initialize();
 	leaderboardMenu.Initialize();
 
@@ -28,6 +22,13 @@ void SceneManager::Initialize()
 	mSceneSwapOverlay->setPosition(sf::Vector2f(-400, -400));
 	mSceneSwapOverlay->setSize(sf::Vector2f(2400, 2400));
 	mSceneSwapOverlay->setFillColor(sf::Color(0, 0, 0, 0));
+
+#if defined(_DEBUG)
+	Stage2* stage2 = new Stage2(mainWindow, mPlayerController, mGameManager);
+	ChangeScene(stage2);
+#else
+	ChangeScene(&mMainMenu);
+#endif
 
 	AddLevel(new Stage1(mainWindow, mPlayerController, mGameManager));
 
@@ -62,7 +63,10 @@ void SceneManager::AddLevel(Stage* newStage)
 
 void SceneManager::ChangeScene(Stage* newStage)
 {
-	mCurrentScene->ResetScene();
+	if(mCurrentScene != nullptr)
+	{
+		mCurrentScene->ResetScene();
+	}
 
 	mCurrentScene = newStage;
 	mCurrentStage = newStage;

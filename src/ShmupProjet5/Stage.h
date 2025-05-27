@@ -36,6 +36,9 @@ protected:
 
 	sf::Texture mDropTexture;
 
+	float mTimeUntilNextWave;
+	int mWave;
+
 public:
 	Stage(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm);
 
@@ -54,6 +57,7 @@ public:
 	
 	virtual void PlayStage(float deltaTime);
 	PlayerController* GetPlayerController();
-	virtual void EnterScene() = 0;
+	virtual void SpawnWave(int wave) = 0;
+	virtual void EnterScene();
 };
 

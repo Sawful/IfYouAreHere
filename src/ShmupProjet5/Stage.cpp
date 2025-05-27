@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "PlayerController.h"
 #include "Drop.h"
+#include "Stage2.h"
 
 
 Stage::Stage(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm): Scene(window)
@@ -93,6 +94,8 @@ void Stage::ResetScene()
 	mPlayerBullets.clear();
 	mEnemies.clear();
 	ResetTimer();
+
+	mWave = 1;
 }
 
 void Stage::Draw()
@@ -111,17 +114,6 @@ void Stage::Draw()
 }
 
 void Stage::Update(float deltaTime)
-{
-	numbLives = mPlayerController->GetLives();
-	lives.setTextureRect(sf::IntRect(0, 0, 32 * numbLives, 32));
-
-	mScoreText = std::to_string(mGameManager->GetScore());
-	mScore.setString(mScoreText);
-
-	Scene::Update(deltaTime);
-}
-
-void Stage::PlayStage(float deltaTime)
 {
 	// Player collision with enemy bullets
 	Player* activePlayer = mPlayerController->GetActivePlayerPointer();
@@ -144,9 +136,42 @@ void Stage::PlayStage(float deltaTime)
 
 		mEnemies[i]->CheckCollisions(&mPlayerBullets);
 	}
+
+	// UI Update
+	numbLives = mPlayerController->GetLives();
+	lives.setTextureRect(sf::IntRect(0, 0, 32 * numbLives, 32));
+
+	mScoreText = std::to_string(mGameManager->GetScore());
+	mScore.setString(mScoreText);
+
+	Scene::Update(deltaTime);
+}
+
+void Stage::PlayStage(float deltaTime)
+{
+	mTimeUntilNextWave -= deltaTime;
+
+	if (mTimeUntilNextWave <= 0)
+	{
+		SpawnWave(mWave);
+		mWave++;
+	}
 }
 
 PlayerController* Stage::GetPlayerController()
 {
 	return mPlayerController;
+}
+
+void Stage::EnterScene()
+{
+	AddToEntities(mPlayerController);
+	AddToEntities(mPlayerController->GetPlayers()[0]);
+	AddToEntities(mPlayerController->GetPlayers()[1]);
+
+	mPlayerController->GetPlayers()[0]->setPosition(sf::Vector2f(400.0f, 700.0f));
+	mPlayerController->GetPlayers()[1]->setPosition(sf::Vector2f(400.0f, 100.0f));
+
+	mWave = 1;
+	mStageTimer.restart();
 }

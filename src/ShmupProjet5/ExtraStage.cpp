@@ -97,13 +97,6 @@ void ExtraStage::Update(float deltaTime)
 	if (-400 <= mBackground1.getPosition().y && mBackground1.getPosition().y <= 400) {
 		mBackground2.setPosition(mBackground1.getPosition() + sf::Vector2f(0, -2400));
 	}
-
-	PlayStage(deltaTime);
-}
-
-void ExtraStage::SpawnWave(int wave)
-{
-	
 }
 
 void ExtraStage::AddToEntities(Bullet* entity)
@@ -137,13 +130,6 @@ void ExtraStage::AddToEntities(Drop* entity)
 void ExtraStage::AddToEntities(Entity* entity)
 {
 	entities.push_back(entity);
-}
-
-
-void ExtraStage::PlayStage(float deltaTime)
-{
-	Stage::PlayStage(deltaTime);
-
 }
 
 void ExtraStage::ResetScene()
@@ -184,16 +170,9 @@ void ExtraStage::EnterScene()
 	mGameView.setSize(sf::Vector2f(64.0f, 64.0f));
 	mIsUnzoomingInitial = true;
 
-	AddToEntities(mPlayerController);
-	AddToEntities(mPlayerController->GetPlayers()[0]);
-	AddToEntities(mPlayerController->GetPlayers()[1]);
-
-	mPlayerController->GetPlayers()[0]->setPosition(sf::Vector2f(400.0f, 700.0f));
-	mPlayerController->GetPlayers()[1]->setPosition(sf::Vector2f(400.0f, 100.0f));
+	Stage::EnterScene();
 
 	AddToEntities(new ExtraBoss(sf::Vector2f(400.0f, 400.0f), 0, true, PARHELION_TEXTURE));
-
-	mStageTimer.restart();
 }
 
 void ExtraStage::SetShake(float duration)

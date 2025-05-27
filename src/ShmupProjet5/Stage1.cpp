@@ -8,19 +8,14 @@
 
 Stage1::Stage1(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm) : Stage(window, playerController, gm)
 {
-	mShotSlugTexture.loadFromFile("..\\..\\..\\res\\enemy_critter1_st.png");
-	mCircleGuyTexture.loadFromFile("..\\..\\..\\res\\enemy_circle_all.png");
-	mTripleShotTexture.loadFromFile("..\\..\\..\\res\\bigger_enemy_critter3_triple_idle.png");
-	mBossTexture.loadFromFile("..\\..\\..\\res\\critterboss.png");
-
-	mForest.loadFromFile("../../../res/shroomforest_bg.png");
+	mBackgroundTexture.loadFromFile("../../../res/shroomforest_bg.png");
 
 	mBackground1.setTextureRect(sf::IntRect(0, 0, 800, 1600));
-	mBackground1.setTexture(mForest);
+	mBackground1.setTexture(mBackgroundTexture);
 	mBackground1.setPosition(0, -800);
 
 	mBackground2.setTextureRect(sf::IntRect(0, 0, 800, 1600));
-	mBackground2.setTexture(mForest);
+	mBackground2.setTexture(mBackgroundTexture);
 	mBackground2.setPosition(0, -2400); 
 }
 
@@ -254,25 +249,6 @@ void Stage1::SpawnWave(int wave)
 
 }
 
-void Stage1::PlayStage(float deltaTime)
-{
-	mTimeUntilNextWave -= deltaTime;
-
-	if (mTimeUntilNextWave <= 0)
-	{
-		SpawnWave(mWave);
-		mWave++;
-	}
-
-	Stage::PlayStage(deltaTime);
-}
-
-void Stage1::ResetScene()
-{
-	Stage::ResetScene();
-	mWave = 1;
-}
-
 void Stage1::Draw()
 {
 	Stage::Draw();
@@ -294,24 +270,11 @@ void Stage1::Draw()
 void Stage1::EnterScene()
 {
 	mGameManager->GetSoundManager()->ChangeMusic(STAGE1);
-
 	mTimeUntilNextWave = 2.0f;
-	// Remember to put this back to 1 after debug
+	Stage::EnterScene();
+
+	// Remember to put this back to 1 (or remove line) after debug
 	mWave = 1;
-
-	AddToEntities(mPlayerController);
-	AddToEntities(mPlayerController->GetPlayers()[0]);
-	AddToEntities(mPlayerController->GetPlayers()[1]);
-
-	for (int i = 0; i < 32; i++)
-	{
-		mPlayerController->IncreaseWeaponPower(1);
-	}
-
-	mPlayerController->GetPlayers()[0]->setPosition(sf::Vector2f(400.0f, 700.0f));
-	mPlayerController->GetPlayers()[1]->setPosition(sf::Vector2f(400.0f, 100.0f));
-
-	mStageTimer.restart();
 }
 
 

@@ -6,29 +6,18 @@
 
 class Stage1: public Stage
 {
-	sf::Texture mShotSlugTexture;
-	sf::Texture mCircleGuyTexture;
-	sf::Texture mTripleShotTexture;
-	sf::Texture mBossTexture;
-
-	sf::Texture mForest;
+	sf::Texture mBackgroundTexture;
 
 	sf::Sprite mBackground1;
 	sf::Sprite mBackground2;
-
-	float mTimeUntilNextWave;
-	int mWave;
 
 public:
 	Stage1(sf::RenderWindow* window, PlayerController* playerController, GameManager* gm);
 	virtual void Update(float deltaTime) override;
 
-	void SpawnWave(int wave);
-
-	virtual void PlayStage(float deltaTime) override;
-	virtual void ResetScene() override;
+	virtual void SpawnWave(int wave) override;
 
 	virtual void Draw() override; 
-	virtual void EnterScene();
+	virtual void EnterScene() override;
 };
 
