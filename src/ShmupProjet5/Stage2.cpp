@@ -15,6 +15,12 @@ Stage2::Stage2(sf::RenderWindow* window, PlayerController* playerController, Gam
 	mBackground2.setTextureRect(sf::IntRect(0, 0, 800, 1600));
 	mBackground2.setTexture(mBackgroundTexture);
 	mBackground2.setPosition(0, -2400);
+
+	mStage2Overlay = new sf::RectangleShape;
+
+	mStage2Overlay->setPosition(-400, -400);
+	mStage2Overlay->setSize(sf::Vector2f(2400, 2400));
+	mStage2Overlay->setFillColor(sf::Color(125, 0, 0, 50));
 }
 
 void Stage2::SpawnWave(int wave)
@@ -64,6 +70,9 @@ void Stage2::Draw()
 
 		mCurrentWindow->draw(*entities[i]);
 	}
+
+	mCurrentWindow->draw(*mStage2Overlay, sf::BlendMax);
+	//mCurrentWindow->draw(*mStage2Overlay, sf::BlendAdd);
 }
 
 void Stage2::EnterScene()
