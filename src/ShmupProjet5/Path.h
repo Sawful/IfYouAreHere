@@ -10,6 +10,7 @@ struct Path
 
     Path(float completeTime);
 	virtual bool FollowPath(float deltaTime, Entity* entity);
+    virtual bool LerpFollowPath(float deltaTime, Entity* entity);
     void ResetCompletion();
 };
 

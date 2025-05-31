@@ -27,3 +27,17 @@ void ShotSlug1::Update(float deltaTime)
 void ShotSlug1::Attack()
 {
 }
+
+void ShotSlug1::Move(float deltaTime)
+{
+	if (mMovementPath[mPathNumber]->FollowPath(deltaTime, this))
+	{
+		mPathNumber++;
+
+		// Enemy disappears when they finish their path
+		if (mPathNumber >= mMovementPath.size())
+		{
+			SetEntityActive(false);
+		}
+	}
+}

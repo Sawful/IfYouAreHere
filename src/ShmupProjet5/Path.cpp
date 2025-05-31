@@ -63,6 +63,13 @@ bool Path::FollowPath(float deltaTime, Entity* entity)
     return false;
 }
 
+bool Path::LerpFollowPath(float deltaTime, Entity* entity)
+{
+    float completionFactor = deltaTime / mCompleteTime;
+    mCompletion += mCompletion + (1 - mCompletion) * completionFactor; // MAKE ACTUAL LERP IM TOO SLEEPY FOR THIS
+    return false;
+}
+
 void Path::ResetCompletion()
 {
     mCompletion = 0;
